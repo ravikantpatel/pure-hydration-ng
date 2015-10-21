@@ -1,0 +1,13 @@
+<project name="Deploy to Tomcat">
+	<property name="src"
+		value="D:/Self Study/Angular JS/pure-hydration-ng/WebContent" />
+	<property name="dist"
+		value="D:/Tomcat7.0.8/apache-tomcat-7.0.8/webapps/pure-hydration-ng" />
+
+	<delete failonerror="false" quiet="false" includeEmptyDirs="true">
+	    <fileset dir="${dist}" includes="**"/>
+	    </delete>
+	<copy todir="${dist}">
+		<fileset dir="${src}" includes="**"/>
+	</copy>
+</project>
