@@ -1,0 +1,56 @@
+<div id="outer"
+	class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li class="active">Company List</li>
+		</ol>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">&nbsp;</div>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Company List <a href="#/companyDetail" class="btn btn-primary">New</a>
+					<a href="exportCompanyDetailsToExcel.do" class="btn btn-primary"
+						id="export" style="float: right; margin-top: 6px;">Export</a>
+				</div>
+				<div class="panel-body">
+					<div id="divError" class="form-group" style="color: red;"></div>
+					<div id="divMessage" class="form-group" style="color: green;"></div>
+
+					<table id="companyListTable" data-search="true"
+						data-pagination="true" data-show-refresh="false"
+						data-show-toggle="false" data-show-columns="false"
+						data-search="true" data-select-item-name="companyId" bootstrap-table>
+						<thead>
+							<tr>
+								<th data-field="companyId" data-checkbox="true"
+									class="bs-checkbox" style="width: 36px;"></th>
+								<th data-field="companyName" data-sortable="true">Company
+									Name</th>
+								<th data-field="address1" data-sortable="true">Address 1</th>
+								<th data-field="address2" data-sortable="true">Address 2</th>
+								<th data-field="city" data-sortable="true">City</th>
+								<th data-field="state" data-sortable="true">State</th>
+								<th data-field="postalCode" data-sortable="true">Zip</th>
+								<th data-field="contactNo" data-sortable="true">Phone</th>
+								<th data-field="website" data-sortable="true">Website</th>
+								<th data-field="emailId" data-sortable="true">Email</th>
+								<th data-field="status" data-sortable="true">Status</th>
+								<th data-field="link" data-sortable="false">Edit</th>
+							</tr>
+						</thead>
+
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

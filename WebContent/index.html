@@ -3,71 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <title>Pure Hydration</title>
-<link href="resources/css/bootstrap.min.css" type="text/css"
+<link href="assets/css/bootstrap.min.css" type="text/css"
 	rel="stylesheet" />
-<link href="resources/css/datepicker3.css" type="text/css"
+<link href="assets/css/datepicker3.css" type="text/css"
 	rel="stylesheet" />
-<link href="resources/css/styles.css" type="text/css" rel="stylesheet" />
-<link href="resources/css/bootstrap-table.css" type="text/css"
+<link href="assets/css/styles.css" type="text/css" rel="stylesheet" />
+<link href="assets/css/bootstrap-table.css" type="text/css"
 	rel="stylesheet" />
-<link href="resources/css/jquery.datetimepicker.css" type="text/css"
+<link href="assets/css/jquery.datetimepicker.css" type="text/css"
 	rel="stylesheet" />
 </head>
 <body ng-app="pure-hydration-ng" ng-controller="AppController">
 
 	<div id="container">
 		<header></header>
-		<div ng-include src="'pages/common/header.html'"></div>
+		<div ng-include src="'app/common/header.html'"></div>
 			<div ng-if="loginBean.loggedIn == true">
-				<div ng-include src="'pages/common/menu.html'"></div>
+				<div ng-include src="'app/common/menu.html'"></div>
 			</div>
 		<div id="main" role="main">
 			<div ng-view></div>
 			<!--	
-				<div ng-include src="'pages/superadmin/dashboard.html'"></div>
+				<div ng-include src="'app/superadmin/dashboard.html'"></div>
 			</div>
 			<div ng-if="loginBean.loggedIn != true">
-				<div ng-include="'pages/login/login.html'"></div>
+				<div ng-include="'app/login/login.html'"></div>
 			</div> -->
 		</div>
 		<!-- 		<footer> Pure Hydration Angular Version 1.0.0 </footer> -->
 	</div>
 
 	<!-- Included Libs -->
-	<script src="resources/lib/others/jquery-1.11.1.min.js"></script>
-	<script src="resources/lib/others/bootstrap.min.js"></script>
-	<script src="resources/lib/others/chart.min.js"></script>
-	<script src="resources/lib/others/bootstrap-datepicker.js"></script>
-	<script src="resources/lib/others/bootstrap-table.js"></script>
-	<script src="resources/lib/others/jquery.datetimepicker.js"></script>
-	<script src="resources/lib/others/jquery.numeric.js"></script>
-	<script src="resources/lib/others/common.js"></script>
-	<script src="resources/lib/angular/angular.js"></script>
-	<script src="resources/lib/angular/angular-aria.js"></script>
-	<script src="resources/lib/angular/angular-animate.js"></script>
-	<script src="resources/lib/angular/angular-cookies.js"></script>
-	<script src="resources/lib/angular/angular-loader.js"></script>
-	<script src="resources/lib/angular/angular-resource.js"></script>
-	<script src="resources/lib/angular/angular-route.js"></script>
-	<script src="resources/lib/angular/angular-sanitize.js"></script>
-	<script src="resources/lib/angular/ngStorage.js"></script>
-	<!-- 	<script src="resources/lib/angular/angular-scenario.js"></script> -->
+	<script src="assets/lib/others/jquery-1.11.1.min.js"></script>
+	<script src="assets/lib/others/bootstrap.min.js"></script>
+	<script src="assets/lib/others/chart.min.js"></script>
+	<script src="assets/lib/others/bootstrap-datepicker.js"></script>
+	<script src="assets/lib/others/bootstrap-table.js"></script>
+	<script src="assets/lib/others/jquery.datetimepicker.js"></script>
+	<script src="assets/lib/others/jquery.numeric.js"></script>
+	<script src="assets/lib/others/common.js"></script>
+	<script src="assets/lib/angular/angular.js"></script>
+	<script src="assets/lib/angular/angular-aria.js"></script>
+	<script src="assets/lib/angular/angular-animate.js"></script>
+	<script src="assets/lib/angular/angular-cookies.js"></script>
+	<script src="assets/lib/angular/angular-loader.js"></script>
+	<script src="assets/lib/angular/angular-resource.js"></script>
+	<script src="assets/lib/angular/angular-route.js"></script>
+	<script src="assets/lib/angular/angular-sanitize.js"></script>
+	<script src="assets/lib/angular/ngStorage.js"></script>
+	<!-- 	<script src="assets/lib/angular/angular-scenario.js"></script> -->
 
 
 	<!-- Application Scripts -->
-	<script src="scripts/app/app.constants.js"></script>
-	<script src="scripts/app/app.js"></script>
+	<script src="app/appConstants.js"></script>
+	<script src="app/app.js"></script>
 
 	<!-- Application Services -->
-	<script src="scripts/components/auth/Auth.js"></script>
-	<script src="scripts/components/company/company.list.service.js"></script>
+	<script src="app/login/authService.js"></script>
+	<script src="app/company/companyListService.js"></script>
 
 	<!-- Modules >> Controllers >> Directives -->
-	<script src="scripts/app/app.controller.js"></script>
-	<script src="scripts/app/login/login.controller.js"></script>
-	<script src="scripts/app/common/menu.controller.js"></script>
-	<script src="scripts/app/superadmin/dashboard.controller.js"></script>
-	<script src="scripts/app/company/company.list.controller.js"></script>
+	<script src="app/appController.js"></script>
+	<script src="app/login/loginController.js"></script>
+	<script src="app/common/menuController.js"></script>
+	<script src="app/superadmin/dashboardController.js"></script>
+	<script src="app/company/companyListController.js"></script>
+	<script src="app/company/companyDetailController.js"></script>
 
 
 </body>
