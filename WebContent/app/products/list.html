@@ -1,0 +1,45 @@
+<div ng-controller="ProductListController" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li class="active">Manage Resources / Products</li>
+		</ol>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">&nbsp;</div>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Product List <a href="loadProductDetail.do" class="btn btn-primary">New</a>
+				</div>
+				<div class="panel-body">
+					<div id="divError" class="form-group" style="color: red;"></div>
+					<div id="divMessage" class="form-group" style="color: green;"></div>
+					<table id="productListTable" data-search="true"
+						data-pagination="true" data-show-refresh="false"
+						data-show-toggle="false" data-show-columns="false"
+						data-search="true" data-select-item-name="productId"
+						data-sort-name="productId" data-sort-order="desc" product-list-table-directive>
+						<thead>
+							<tr>
+								<th data-field="productId" data-checkbox="true"
+									class="bs-checkbox" style="width: 36px;"></th>
+								<th data-field="productName" data-sortable="true">Product
+									Name</th>
+								<th data-field="description" data-sortable="true">Description</th>
+								<th data-field="image" data-sortable="true">Image</th>
+								<th data-field="link" data-sortable="false">Edit</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

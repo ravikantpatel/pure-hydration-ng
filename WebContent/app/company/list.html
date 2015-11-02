@@ -1,4 +1,4 @@
-<div id="outer"
+<div id="outer" ng-controller="CompanyListController"
 	class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 	<div class="row">
 		<ol class="breadcrumb">
@@ -17,8 +17,8 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Company List <a href="#/companyDetail" class="btn btn-primary">New</a>
-					<a href="exportCompanyDetailsToExcel.do" class="btn btn-primary"
+					Company List <a href="#/companyDetail/0" class="btn btn-primary">New</a>
+					<a ng-click="exportToXLS()" class="btn btn-primary"
 						id="export" style="float: right; margin-top: 6px;">Export</a>
 				</div>
 				<div class="panel-body">
@@ -28,7 +28,7 @@
 					<table id="companyListTable" data-search="true"
 						data-pagination="true" data-show-refresh="false"
 						data-show-toggle="false" data-show-columns="false"
-						data-search="true" data-select-item-name="companyId" bootstrap-table>
+						data-search="true" data-select-item-name="companyId" company-list-table-directive>
 						<thead>
 							<tr>
 								<th data-field="companyId" data-checkbox="true"

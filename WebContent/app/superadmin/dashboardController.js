@@ -2,16 +2,17 @@
  * Super Admin Dashboard Controller
  */
 
-pureHydrationAppControllers.controller('DashboardController', [ '$scope',
-		'$window', 'AuthService', 'UNITS', 'CompanyService',
+pureHydrationAppControllers.controller('superadminDashboardController', [
+		'$scope', '$window', 'AuthService', 'UNITS', 'CompanyService',
 		function($scope, $window, AuthService, UNITS, CompanyService) {
-			if (AuthService.getStatus() == false) {
-				$window.location.href = '#/login';
-			}
-			$scope.totalWaterLogged = 100;
-			$scope.liquidUnit = UNITS.liquidUnit;
-			$scope.totalGoal = 200;
-			$scope.totalActiveUsers = 14;
+			AuthService.checkAuthentication();
+			$scope.summaryWidget = {};
+			$scope.summaryWidget.totalWaterLogged = 100;
+			$scope.summaryWidget.liquidUnit = UNITS.liquidUnit;
+			$scope.summaryWidget.totalGoal = 200;
+			$scope.summaryWidget.totalActiveUsers = 14;
+			$scope.summaryWidget.completed12DBluePrint = 11;
 
 			$scope.companyDetails = CompanyService.getCompanyDetails();
+
 		} ]);

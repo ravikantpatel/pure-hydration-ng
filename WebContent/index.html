@@ -5,12 +5,13 @@
 <title>Pure Hydration</title>
 <link href="assets/css/bootstrap.min.css" type="text/css"
 	rel="stylesheet" />
-<link href="assets/css/datepicker3.css" type="text/css"
-	rel="stylesheet" />
+<link href="assets/css/datepicker3.css" type="text/css" rel="stylesheet" />
 <link href="assets/css/styles.css" type="text/css" rel="stylesheet" />
 <link href="assets/css/bootstrap-table.css" type="text/css"
 	rel="stylesheet" />
 <link href="assets/css/jquery.datetimepicker.css" type="text/css"
+	rel="stylesheet" />
+<link href="assets/css/angular-chart.css" type="text/css"
 	rel="stylesheet" />
 </head>
 <body ng-app="pure-hydration-ng" ng-controller="AppController">
@@ -18,9 +19,9 @@
 	<div id="container">
 		<header></header>
 		<div ng-include src="'app/common/header.html'"></div>
-			<div ng-if="loginBean.loggedIn == true">
-				<div ng-include src="'app/common/menu.html'"></div>
-			</div>
+		<div ng-if="loginBean.loggedIn == true">
+			<div ng-include src="'app/common/menu.html'"></div>
+		</div>
 		<div id="main" role="main">
 			<div ng-view></div>
 			<!--	
@@ -40,8 +41,14 @@
 	<script src="assets/lib/others/bootstrap-datepicker.js"></script>
 	<script src="assets/lib/others/bootstrap-table.js"></script>
 	<script src="assets/lib/others/jquery.datetimepicker.js"></script>
+	<script src="assets/lib/others/jquery.mask.js"></script>
 	<script src="assets/lib/others/jquery.numeric.js"></script>
+<!-- 	<script src="assets/lib/others/jquery-loader.js"></script> -->
 	<script src="assets/lib/others/common.js"></script>
+	<script src="assets/lib/others/Chart.js"></script>
+	<script src="assets/lib/others/xlsx.core.min.js"></script>
+	<script src="assets/lib/others/alasql.js"></script>
+	
 	<script src="assets/lib/angular/angular.js"></script>
 	<script src="assets/lib/angular/angular-aria.js"></script>
 	<script src="assets/lib/angular/angular-animate.js"></script>
@@ -51,6 +58,8 @@
 	<script src="assets/lib/angular/angular-route.js"></script>
 	<script src="assets/lib/angular/angular-sanitize.js"></script>
 	<script src="assets/lib/angular/ngStorage.js"></script>
+	<script src="assets/lib/angular/angular-idle.js"></script>
+	<script src="assets/lib/angular/angular-chart.js"></script>
 	<!-- 	<script src="assets/lib/angular/angular-scenario.js"></script> -->
 
 
@@ -61,14 +70,37 @@
 	<!-- Application Services -->
 	<script src="app/login/authService.js"></script>
 	<script src="app/company/companyListService.js"></script>
+	<script src="app/country/countryListService.js"></script>
+	<script src="app/states/stateListService.js"></script>
+	<script src="app/user/userListService.js"></script>
+	<script src="app/companyadmin/waterIntakeService.js"></script>
+	<script src="app/products/productListService.js"></script>
 
 	<!-- Modules >> Controllers >> Directives -->
 	<script src="app/appController.js"></script>
 	<script src="app/login/loginController.js"></script>
+	<!-- Common -->
+	<script src="app/common/headerController.js"></script>
 	<script src="app/common/menuController.js"></script>
+	<script src="app/common/dashboardRouteController.js"></script>
+	<script src="app/common/listRouteController.js"></script>
+	<script src="app/common/detailRouteController.js"></script>
+	<!-- Super Admin -->
 	<script src="app/superadmin/dashboardController.js"></script>
+	<!-- Company Admin -->
+	<script src="app/companyadmin/dashboardController.js"></script>
+	<!-- Company -->	
 	<script src="app/company/companyListController.js"></script>
+	<script src="app/company/companyListDirective.js"></script>
 	<script src="app/company/companyDetailController.js"></script>
+	<script src="app/company/companyDetailDirective.js"></script>
+	<!-- Resources -->
+	<script src="app/resources/resourcesController.js"></script>
+	<!-- Manage Resources -->
+	<script src="app/manageresources/manageResourcesController.js"></script>
+	<!-- Produt -->
+	<script src="app/products/productListController.js"></script>
+	<script src="app/products/productListDirective.js"></script>
 
 
 </body>

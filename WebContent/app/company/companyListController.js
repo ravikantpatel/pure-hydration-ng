@@ -4,23 +4,18 @@
 
 pureHydrationAppControllers.controller('CompanyListController', [ '$scope',
 		'AuthService', '$window', 'UNITS', 'CompanyService',
+
 		function($scope, AuthService, $window, UNITS, CompanyService) {
-			if (AuthService.getStatus() == false) {
-				$window.location.href = '#/login';
-			}
+			AuthService.checkAuthentication();
+
 			$scope.companyDetails = CompanyService.getCompanyDetails();
+
+			$scope.exportToXLS = function () {
+		        alasql('SELECT * INTO XLSX("companyList.xlsx",{headers:true}) FROM ?',[$scope.companyDetails]);
+		    };
+			
 			$scope.config = {
 				itemsPerPage : 5,
 				fillLastPage : true
 			}
 		} ]);
-pureHydrationApp.directive("bootstrapTable", function() {
-	return function(scope, element, attrs) {
-		scope.$watch("companyDetails", function() {
-//			alert('message');
-			$table = $('#companyListTable').bootstrapTable({
-				data : scope.companyDetails
-			});
-		});
-	};
-});

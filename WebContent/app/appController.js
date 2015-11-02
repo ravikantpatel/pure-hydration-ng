@@ -10,15 +10,5 @@ pureHydrationAppControllers.controller('AppController', [ '$scope',
 			$scope.loginBean.loggedIn = AuthService.getStatus();
 			$scope.loginBean.currentUser = AuthService.getCurrentUser();
 			$scope.loginBean.userRole = AuthService.getUserRole();
-			$scope.logout = function() {
-				console.log('logout');
-				AuthService.setCurrentUser('');
-				AuthService.setStatus(false);
-				AuthService.setUserRole('');
-				$scope.loginBean.loggedIn = AuthService.getStatus();
-				$scope.loginBean.currentUser = AuthService.getCurrentUser();
-				$scope.loginBean.userRole = AuthService.getUserRole();
-				$window.location.href = '#/login';
-			}
-
+			$scope.loginBean.selectedMenuItem = AuthService.getSelectedMenuItem();
 		} ]);

@@ -1,0 +1,296 @@
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li class="active">Resources</li>
+		</ol>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<h2>App Downloads</h2>
+		</div>
+
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading dark-overlay">Apple iOS Devices</div>
+				<div class="panel-body">
+					<p>If you are using an iPhone or iPad, please download the app
+						by clicking the link below from your device.</p>
+					<p align="center">
+						<a
+							href="https://itunes.apple.com/us/app/hydrate-now/id986348989?ls=1&mt=8"
+							target="_blank"><img
+							src="assets/images/AppStoreButton.png" width="65%" border="0" /></a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--/.col-->
+
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading dark-overlay">Android Devices</div>
+				<div class="panel-body">
+					<p>If you are using an Android device, please download the app
+						by clicking the link below from your device.</p>
+					<p align="center">
+						<a href="#"><img
+							src="assets/images/google-play-download.png" width="65%"
+							border="0" /></a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--/.col-->
+
+	</div>
+	<!--/.row-->
+	<div class="row">
+		<div class="col-lg-12">
+			<h2>Poseters and Documents</h2>
+		</div>
+		<!-- <c:set var="count" scope="page" value="1" />
+		<c:forEach var="documentList" items="${documentList}">
+			<div class="col-md-4">
+				<c:if test="${count eq 1}">
+					<div class="panel panel-default">
+				</c:if>
+				<c:if test="${count eq 2}">
+					<div class="panel panel-primary">
+				</c:if>
+				<c:if test="${count eq 3}">
+					<div class="panel panel-success">
+				</c:if>
+				<c:if test="${count eq 4}">
+					<div class="panel panel-info">
+				</c:if>
+				<c:if test="${count eq 5}">
+					<div class="panel panel-warning">
+						<c:set var="count" scope="page" value="0" />
+				</c:if>
+				<div class="panel-heading">${documentList.name}</div>
+				<div class="panel-body">
+					<p>${documentList.description}</p>
+				</div>
+			</div>
+	</div>
+	<c:set var="count" value="${count + 1}" scope="page" />
+	</c:forEach> -->
+	<!-- c:forEach var="productList" items="${productList}">
+		<div class="col-md-4">
+			<c:if test="${count eq 1}">
+				<div class="panel panel-default">
+			</c:if>
+			<c:if test="${count eq 2}">
+				<div class="panel panel-primary">
+			</c:if>
+			<c:if test="${count eq 3}">
+				<div class="panel panel-success">
+			</c:if>
+			<c:if test="${count eq 4}">
+				<div class="panel panel-info">
+			</c:if>
+			<c:if test="${count eq 5}">
+				<div class="panel panel-warning">
+					<c:set var="count" scope="page" value="0" />
+			</c:if>
+			<div class="panel-heading">${productList.productName}</div>
+			<div class="panel-body">
+				<p>${productList.description}</p>
+			</div>
+		</div>
+</div>
+<c:set var="count" value="${count + 1}" scope="page" />
+</c:forEach> -->
+</div>
+<!--/.row-->
+<div class="row">
+	<div class="col-lg-12">
+		<h2>Video Tutorials</h2>
+	</div>
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-body tabs">
+
+				<ul class="nav nav-pills">
+					<!-- <c:if test="${fn:length(videoList) gt 0}">
+						<li class="active"><a href="#pilltab1" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(0).title) gt 6}">${fn:substring(videoList.get(0).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(0).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 1}">
+						<li><a href="#pilltab2" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(1).title) gt 6}">${fn:substring(videoList.get(1).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(1).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 2}">
+						<li><a href="#pilltab3" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(2).title) gt 6}">${fn:substring(videoList.get(2).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(2).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 3}">
+						<li><a href="#pilltab4" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(3).title) gt 6}">${fn:substring(videoList.get(3).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(3).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 4}">
+						<li><a href="#pilltab4" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(4).title) gt 6}">${fn:substring(videoList.get(4).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(4).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 5}">
+						<li><a href="#pilltab4" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(5).title) gt 6}">${fn:substring(videoList.get(5).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(5).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 6}">
+						<li><a href="#pilltab4" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(6).title) gt 6}">${fn:substring(videoList.get(6).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(6).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 7}">
+						<li><a href="#pilltab4" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(7).title) gt 6}">${fn:substring(videoList.get(7).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(7).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 8}">
+						<li><a href="#pilltab4" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(8).title) gt 6}">${fn:substring(videoList.get(8).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(8).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 9}">
+						<li><a href="#pilltab4" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(9).title) gt 6}">${fn:substring(videoList.get(9).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(9).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 10}">
+						<li><a href="#pilltab4" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(10).title) gt 6}">${fn:substring(videoList.get(10).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(10).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 11}">
+						<li><a href="#pilltab4" data-toggle="tab"><c:choose>
+									<c:when test="${fn:length(videoList.get(11).title) gt 6}">${fn:substring(videoList.get(11).title, 0, 6)}...</c:when>
+									<c:otherwise> ${videoList.get(11).title}</c:otherwise>
+								</c:choose></a></li>
+					</c:if> -->
+				</ul>
+
+				<div class="tab-content">
+					<!-- <c:if test="${fn:length(videoList) gt 0}">
+						<div class="tab-pane fade in active" id="pilltab1">
+							<h4>
+								<a href="${videoList.get(0).link}" target="_blank">${videoList.get(0).title}</a>
+							</h4>
+							<p>${videoList.get(0).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 1}">
+						<div class="tab-pane fade" id="pilltab2">
+							<h4>
+								<a href="${videoList.get(1).link}" target="_blank">${videoList.get(1).title}</a>
+							</h4>
+							<p>${videoList.get(1).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 2}">
+						<div class="tab-pane fade" id="pilltab3">
+							<h4>
+								<a href="${videoList.get(2).link}" target="_blank">${videoList.get(2).title}</a>
+							</h4>
+							<p>${videoList.get(2).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 3}">
+						<div class="tab-pane fade" id="pilltab4">
+							<h4>
+								<a href="${videoList.get(3).link}" target="_blank">${videoList.get(3).title}</a>
+							</h4>
+							<p>${videoList.get(3).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 4}">
+						<div class="tab-pane fade" id="pilltab4">
+							<h4>
+								<a href="${videoList.get(4).link}" target="_blank">${videoList.get(4).title}</a>
+							</h4>
+							<p>${videoList.get(4).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 5}">
+						<div class="tab-pane fade" id="pilltab4">
+							<h4>
+								<a href="${videoList.get(5).link}" target="_blank">${videoList.get(5).title}</a>
+							</h4>
+							<p>${videoList.get(5).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 6}">
+						<div class="tab-pane fade" id="pilltab4">
+							<h4>
+								<a href="${videoList.get(6).link}" target="_blank">${videoList.get(6).title}</a>
+							</h4>
+							<p>${videoList.get(6).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 7}">
+						<div class="tab-pane fade" id="pilltab4">
+							<h4>
+								<a href="${videoList.get(7).link}" target="_blank">${videoList.get(7).title}</a>
+							</h4>
+							<p>${videoList.get(7).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 8}">
+						<div class="tab-pane fade" id="pilltab4">
+							<h4>
+								<a href="${videoList.get(8).link}" target="_blank">${videoList.get(8).title}</a>
+							</h4>
+							<p>${videoList.get(8).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 9}">
+						<div class="tab-pane fade" id="pilltab4">
+							<h4>
+								<a href="${videoList.get(9).link}" target="_blank">${videoList.get(9).title}</a>
+							</h4>
+							<p>${videoList.get(9).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 10}">
+						<div class="tab-pane fade" id="pilltab4">
+							<h4>
+								<a href="${videoList.get(10).link}" target="_blank">${videoList.get(10).title}</a>
+							</h4>
+							<p>${videoList.get(10).description}</p>
+						</div>
+					</c:if>
+					<c:if test="${fn:length(videoList) gt 11}">
+						<div class="tab-pane fade" id="pilltab4">
+							<h4>
+								<a href="${videoList.get(11).link}" target="_blank">${videoList.get(11).title}</a>
+							</h4>
+							<p>${videoList.get(11).description}</p>
+						</div>
+					</c:if> -->
+				</div>
+			</div>
+		</div>
+		<!--/.panel-->
+	</div>
+	<!-- /.col-->
+</div>
+<!-- /.row -->

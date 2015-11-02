@@ -1,0 +1,229 @@
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main"
+	ng-controller="companyadminDashboardController">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="#/companyAdminDashboard"><span
+					class="glyphicon glyphicon-home"></span></a></li>
+			<li class="active">Dashboard</li>
+		</ol>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">&nbsp;</div>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="alert bg-primary" role="alert">
+				<span class="glyphicon glyphicon-info-sign"></span> Welcome to the
+				Admin panel! See this <a data-remodal-target="videoModal">Video
+					Tutorial</a> to get started! <a href="#" class="pull-right"
+					data-dismiss="alert"><span class="glyphicon glyphicon-remove"></span></a>
+				<p>
+					<a href="#" data-remodal-target="modalWarning" id="modalWarning"></a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-xs-12 col-md-6 col-lg-3">
+			<div class="panel panel-blue panel-widget ">
+				<div class="row no-padding">
+					<div class="col-sm-3 col-lg-5 widget-left">
+						<em class="glyphicon glyphicon-tint glyphicon-l"></em>
+					</div>
+					<div class="col-sm-9 col-lg-7 widget-right">
+						<div class="large">{{summaryWidget.totalCompanyWaterLogged}}
+							{{summaryWidget.liquidUnit}}</div>
+						<div class="text-muted">Logged Today</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-6 col-lg-3">
+			<div class="panel panel-red panel-widget">
+				<div class="row no-padding">
+					<div class="col-sm-3 col-lg-5 widget-left">
+						<em class="glyphicon glyphicon-stats glyphicon-l"></em>
+					</div>
+					<div class="col-sm-9 col-lg-7 widget-right">
+						<div class="large">{{summaryWidget.totalCompanyGoal}}
+							{{summaryWidget.liquidUnit}}</div>
+						<div class="text-muted">Goals Today</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-6 col-lg-3">
+			<div class="panel panel-orange panel-widget">
+				<div class="row no-padding">
+					<div class="col-sm-3 col-lg-5 widget-left">
+						<em class="glyphicon glyphicon-calendar glyphicon-l"></em>
+					</div>
+					<div class="col-sm-9 col-lg-7 widget-right">
+						<div class="large">{{summaryWidget.completed12DBluePrint}}</div>
+						<div class="text-muted">Completed 21 Day Blueprint</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-6 col-lg-3">
+			<div class="panel panel-teal panel-widget">
+				<div class="row no-padding">
+					<div class="col-sm-3 col-lg-5 widget-left">
+						<em class="glyphicon glyphicon-user glyphicon-l"></em>
+					</div>
+					<div class="col-sm-9 col-lg-7 widget-right">
+						<div class="large">{{summaryWidget.totalCompanyActiveUsers}}</div>
+						<div class="text-muted">Active Users</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-md-8">
+
+			<div id="line-chart-company-performance"
+				ng-controller="CompanyPerformanceChartController">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Company Performance (<a href="#/actualVsGoalDetailAdminReport">actual
+							vs goal</a>)
+					</div>
+
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas id="line" class="chart chart-line" chart-data="data"
+								chart-labels="labels" chart-legend="false"
+								chart-click="lineChartClick" chart-series="series" height="200"
+								width="600"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!--/.col-->
+
+		<div class="col-md-4">
+
+			<div class="panel panel-blue">
+				<div class="panel-heading dark-overlay">
+					<span class="glyphicon glyphicon-user"></span>Top 10 Users
+				</div>
+				<div class="panel-body">
+					<ul class="todo-list">
+						<li class="todo-list-item" ng-repeat="user in top10CompanyUser">
+							<div class="checkbox">{{user.title}}. {{user.firstName}}
+								{{user.lastName}}</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+		<!--/.col-->
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-md-6">
+			<div id="pie-chart-departmentwise"
+				ng-controller="WaterByDepartmentChartController">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Water by Department (<a
+							href="#/waterByDepartmentDetailAdminReport">view details</a>)
+					</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas id="pie" class="chart chart-pie" chart-data="data"
+								chart-labels="labels"></canvas>
+							<div ng-show="data.length == 0">No data available.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div id="pie-chart-locationwise"
+				ng-controller="WaterByLocationChartController">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Water by Location (<a href="#/waterByLocationDetailAdminReport">view
+							details</a>)
+					</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas id="pie" class="chart chart-pie" chart-data="data"
+								chart-labels="labels"></canvas>
+							<div ng-show="data.length == 0">No data available.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div id="line-chart" ng-controller="FemaleVsMaleChartController">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Female vs Male Activity (<a
+							href="#/femaleVsMaleActivityDetailAdminReport">view details</a>)
+					</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas id="line" class="chart chart-line" chart-data="data"
+								chart-labels="labels" chart-legend="false"
+								chart-click="lineChartClick" chart-series="series" height="200"
+								width="600"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/.row-->
+
+</div>
+<!--/.main-->
+<!-- <div class="remodal" data-remodal-id="videoModal" data-remodal-options="closeOnEscape: false , closeOnOutsideClick: false" style="
+    background-color: transparent;">
+	<a id="close" href="companyAdminDashboard.do" class="remodal-close" style="top:13px !important;left:47px !important;"></a>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/NIYcjACYNzI" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="remodal" data-remodal-id="modalWarning" data-remodal-options="closeOnEscape: true , closeOnOutsideClick: true" style="
+    background-color: transparent;">
+	<form id="myform" method="post" action="requestResetPassword.do">
+		<div class="row">
+			<div class="login-panel panel panel-default">
+				<div class="panel-body">
+					<fieldset>
+						<div align="left" id="message1" class="form-group">Set Weight, Activity Level, Weather/Temperature and Water intake goal fields from My Profile before adding Water log.<br/></div>
+							<table width="100%" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+        						<td align="left" valign="middle">
+									<input data-remodal-action="cancel" id="cancel" type="reset" class="left mrg_left_70 btn btn-primary" value="Ok" align="left"/>
+								</td>
+								</tr>
+							</table>
+					</fieldset>
+				</div>
+			</div>
+		</div>/.row
+	</form>
+</div> -->

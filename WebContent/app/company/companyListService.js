@@ -19,13 +19,18 @@ pureHydrationServices
 								address1 : 'address1',
 								address2 : 'address2',
 								city : 'Wichita',
+								stateId : 1,
 								state : 'Wichita',
+								country : {
+									countryId : 1,
+									country : 'USA'
+								},
 								postalCode : '84425',
 								contactNo : '21345225',
 								website : 'www.motorola.us',
 								emailId : 'admin@motorola.us',
 								status : 'Active',
-								link : '<a href="#/editCompany:105" onclick="this.parentNode.submit()">Edit</a>'
+								link : '<a href="#/Detail/company/105" >Edit</a>'
 							},
 							{
 								companyId : 201,
@@ -38,13 +43,20 @@ pureHydrationServices
 								address1 : 'china street',
 								address2 : 'mobile corner',
 								city : 'Hongkong',
-								state : 'Hongkong',
+								state : {
+									stateId : 2,
+									state : 'Hongkong'
+								},
+								country : {
+									countryId : 5,
+									country : 'China'
+								},
 								postalCode : '15545',
 								contactNo : '54654321',
 								website : 'www.samsung.hk',
 								emailId : 'admin@samsung.hk',
 								status : 'Active',
-								link : '<a href="#/editCompany:201" onclick="this.parentNode.submit()">Edit</a>'
+								link : '<a href="#/Detail/company/201" >Edit</a>'
 							},
 							{
 								companyId : 111,
@@ -57,13 +69,20 @@ pureHydrationServices
 								address1 : 'Google road',
 								address2 : 'Google Building',
 								city : 'Silicon Velly',
-								state : 'Silicon Velly',
+								state : {
+									stateId : 3,
+									state : 'Silicon Velly'
+								},
+								country : {
+									countryId : 1,
+									country : 'USA'
+								},
 								postalCode : '414822',
 								contactNo : '787585544',
 								website : 'www.abcdefghijklmnopqrstuvwxyz.com',
 								emailId : 'ceo@abcdefghijklmnopqrstuvwxyz.com',
 								status : 'Active',
-								link : '<a href="#/editCompany:111" onclick="this.parentNode.submit()">Edit</a>'
+								link : '<a href="#/Detail/company/111" >Edit</a>'
 							},
 							{
 								companyId : 150,
@@ -75,14 +94,21 @@ pureHydrationServices
 								companySince : 2010,
 								address1 : 'Micromax Building',
 								address2 : '',
-								city : 'Hydrabad',
-								state : 'Andrapradesh',
+								city : 'Hydrabad',								
+								state : {
+									stateId : 4,
+									state : 'Andrapradesh'
+								},
+								country : {
+									countryId : 2,
+									country : 'India'
+								},
 								postalCode : '874155',
 								contactNo : '9885548700',
 								website : 'www.micromax.co.in',
 								emailId : 'hr@micromax.co.in',
 								status : 'Active',
-								link : '<a href="#/editCompany:150" onclick="this.parentNode.submit()">Edit</a>'
+								link : '<a href="#/Detail/company/150" >Edit</a>'
 							} ];
 
 					return {
@@ -90,6 +116,7 @@ pureHydrationServices
 							return companyDetails;
 						},
 						getCompanyDetailById : function(companyId) {
+							
 							for (var i = 0; i < companyDetails.length; i++) {
 								if (companyId == companyDetails[i].companyId) {
 									return companyDetails[i];

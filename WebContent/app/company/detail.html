@@ -1,110 +1,131 @@
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+<div ng-controller="CompanyDetailController" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 	<div class="row">
 		<ol class="breadcrumb">
-		<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-		<li class="active">{{pagePath}}</li>
+			<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li class="active">{{pagePath}}</li>
 		</ol>
 	</div>
 	<div class="row">
-		<div class="col-lg-12">
-			&nbsp;
-		</div>
-	</div><!--/.row-->
+		<div class="col-lg-12">&nbsp;</div>
+	</div>
+	<!--/.row-->
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="panel panel-default">
-			<div class="panel-heading">{{pageHeader}} -- {{companyDetail.companyName}}</div>
-			<div class="panel-body">
-			<form name="companyDetail" id="companyDetail" action="" method="post" enctype="multipart/form-data">
-					<div id="divError" class="form-group" style="color: red;"></div>
-					<div id="divMessage" class="form-group" style="color: green;"></div>
-						
-					<div class="col-md-6">
-						
+				<div class="panel-heading">{{pageHeader}}</div>
+				<div class="panel-body">
+					<form name="companyDetailForm" id="companyDetailForm" action=""
+						method="post" enctype="multipart/form-data">
+						<div id="divError" class="form-group" style="color: red;"></div>
+						<div id="divMessage" class="form-group" style="color: green;"></div>
+
+						<div class="col-md-6">
+
 							<div class="form-group">
-								<label>Name</label><label style="color: red;">*</label>
-								<input type="hidden" id="companyID" name="companyID" ng-model="companyDetail.companyId"/>
-								<input type="text" id="name" name="name" tabindex="1" class="form-control" ng-maxlength="75" ng-model="companyDetail.companyName"/>
+								<label>Name</label><label style="color: red;">*</label> <input
+									type="hidden" id="companyID" name="companyID"
+									ng-model="companyDetail.companyId" /> <input type="text"
+									id="name" name="name" tabindex="1" class="form-control"
+									ng-maxlength="75" ng-model="companyDetail.companyName" />
 							</div>
-															
+
 							<div class="form-group">
-								<label>Address 1</label><label style="color: red;">*</label>
-								<input type="text" id="address1" name="address1" tabindex="2" class="form-control" ng-maxlength="150" ng-model="companyDetail.address1"/>
+								<label>Address 1</label><label style="color: red;">*</label> <input
+									type="text" id="address1" name="address1" tabindex="2"
+									class="form-control" ng-maxlength="150"
+									ng-model="companyDetail.address1" />
 							</div>
-                               
-                            <div class="form-group">
-								<label>Address 2</label><label style="color: red;">*</label>
-								<input type="text" id="address2" name="address2" tabindex="3" class="form-control" ng-maxlength="150" ng-model="companyDetail.address2"/>
+
+							<div class="form-group">
+								<label>Address 2</label><label style="color: red;">*</label> <input
+									type="text" id="address2" name="address2" tabindex="3"
+									class="form-control" ng-maxlength="150"
+									ng-model="companyDetail.address2" />
 							</div>
-                            
-                            <div class="form-group">
-								<label>Country</label><label style="color: red;">*</label>								
-								<select ng-model="companyDetail.countryId" class="form-control"
-									ng-options="country.country for country in countryList">
+
+							<div class="form-group">
+								<label>Country</label><label style="color: red;">*</label> <select
+									ng-model="companyDetail.country" class="form-control"
+									ng-options="country.country for country in countryList track by country.countryId">
+									<!-- <option value="">--Select--</option> -->
+								</select>
+							</div>
+
+							<div class="form-group">
+								<label>State</label><label style="color: red;">*</label> <select
+									ng-model="companyDetail.state" class="form-control"
+									ng-options="state.state for state in stateList track by state.stateId">
 									<option value="">--Select--</option>
 								</select>
 							</div>
-							
-                            <div class="form-group">
-								<label>State</label><label style="color: red;">*</label>
-								<select ng-model="companyDetail.stateId" class="form-control"
-									ng-options="state.state for state in stateList">
-									<option value="">--Select--</option>
-								</select>
-							</div>
-							   
-                            <div class="form-group">
-								<label>City</label><label style="color: red;">*</label>
-								<select ng-model="companyDetail.cityId" class="form-control"
+
+							<div class="form-group">
+								<label>City</label><label style="color: red;">*</label> <select
+									ng-model="companyDetail.cityId" class="form-control"
 									ng-options="city.city for city in cityList">
 									<option value="">--Select--</option>
 								</select>
 							</div>
-                               
-                            <div class="form-group">
-								<label>Zip</label><label style="color: red;">*</label>
-								<input type="text" id="postalCode" name="postalCode" tabindex="7" class="form-control" ng-maxlength="6" ng-model="companyDetail.postalCode" onchange="checkNumeric()"/>
-							</div>   
-                            
-                            
-                            <button id="submit" type="submit" class="btn btn-primary" tabindex="13" onclick="return addUpdateCompany();">{{saveActionCaption}}</button>
-                            <button type="reset" class="btn btn-default" tabindex="14">Reset</button>
+
+							<div class="form-group">
+								<label>Zip</label><label style="color: red;">*</label> <input
+									type="text" id="postalCode" name="postalCode" tabindex="7"
+									class="form-control" ng-maxlength="6"
+									ng-model="companyDetail.postalCode" onchange="checkNumeric()" />
+							</div>
+
+
+							<button id="submit" type="submit" class="btn btn-primary"
+								tabindex="13" onclick="return addUpdateCompany();">{{saveActionCaption}}</button>
+							<button type="reset" class="btn btn-default" tabindex="14">Reset</button>
 
 						</div>
 						<div class="col-md-6">
-							<label>Company Logo</label><label style="color: red;">*</label>
-							<input type="hidden" name="logo" id="logo" class="hidden-image-data" />
-							<input type="hidden" name="isCropped" id="isCropped" value="true"/>
-								<div class="form-group">
+							<label>Company Logo</label><label style="color: red;">*</label> <input
+								type="hidden" name="logo" id="logo" class="hidden-image-data" />
+							<input type="hidden" name="isCropped" id="isCropped" value="true" />
+							<div class="form-group">
 								<div class="image-editor">
-      								<input id="imageUpload" name="imageUpload" type="file" class="cropit-image-input"/>
-								      <div class="cropit-image-preview" id="imagePreview" style="display: block;"></div>
-								      <p><img src="{{companyLogoUrl}}" id="smallImage" style="margin-top: 7px;border: 1px solid #ccc;"/></p>
-								      <p class="help-block">Logo size: 416px wide by 107px high</p>
-      									<div id="imgLabel" class="image-size-label" style="display: none;">
-        									Resize image
-      									</div>
-      									<input id="imgRange" style="display: none;width: 83%;" type="range" class="cropit-image-zoom-input" />
-<!--       									<button class="export">Export</button> -->
-    							</div>
+									<input id="imageUpload" name="imageUpload" type="file"
+										class="cropit-image-input" />
+									<div class="cropit-image-preview" id="imagePreview"
+										style="display: block;"></div>
+									<p>
+										<img src="{{companyLogoUrl}}" id="smallImage"
+											style="margin-top: 7px; border: 1px solid #ccc;" />
+									</p>
+									<p class="help-block">Logo size: 416px wide by 107px high</p>
+									<div id="imgLabel" class="image-size-label"
+										style="display: none;">Resize image</div>
+									<input id="imgRange" style="display: none; width: 83%;"
+										type="range" class="cropit-image-zoom-input" />
+									<!--       									<button class="export">Export</button> -->
 								</div>
-                                <div class="form-group">
-                                       <label>Phone</label><label style="color: red;">*</label>
-                                       <input type="text" id="contactNo" name="contactNo" tabindex="9" class="form-control" ng-maxlength="11" ng-model="companyDetail.contactNo" onchange="checkNumeric()"/>
-                                   </div>
-                                   
-                                <div class="form-group">
-                                       <label>E-Mail</label><label style="color: red;">*</label>
-                                       
-                                				<input type="text" id="emailId" name="emailId" tabindex="10" class="form-control" ng-maxlength="75" ng-model="companyDetail.emailId" placeholder="contact@example.com"/>
-                               	 		
-                                </div>
-                                <div class="form-group">
-                                       <label>Website</label><label style="color: red;">*</label>
-                                       <input type="text" id="website" name="website" tabindex="11" class="form-control" ng-maxlength="75" ng-model="companyDetail.website" placeholder="http://example.com"/>
-                                   </div>
-                                <c:choose>
-                                <!-- <c:when test="${paramValues.page[0] ne 'companyProfile' and page ne 'companyProfile'}">	
+							</div>
+							<div class="form-group">
+								<label>Phone</label><label style="color: red;">*</label> <input
+									type="text" id="contactNo" name="contactNo" tabindex="9"
+									class="form-control" ng-maxlength="11"
+									ng-model="companyDetail.contactNo" onchange="checkNumeric()" />
+							</div>
+
+							<div class="form-group">
+								<label>E-Mail</label><label style="color: red;">*</label> <input
+									type="text" id="emailId" name="emailId" tabindex="10"
+									class="form-control" ng-maxlength="75"
+									ng-model="companyDetail.emailId"
+									placeholder="contact@example.com" />
+
+							</div>
+							<div class="form-group">
+								<label>Website</label><label style="color: red;">*</label> <input
+									type="text" id="website" name="website" tabindex="11"
+									class="form-control" ng-maxlength="75"
+									ng-model="companyDetail.website"
+									placeholder="http://example.com" />
+							</div>
+							<c:choose>
+								<!-- <c:when test="${paramValues.page[0] ne 'companyProfile' and page ne 'companyProfile'}">	
                                 <div class="form-group">
 									<label>Status</label><label style="color: red;">*</label><br />
 									<c:choose>
@@ -125,22 +146,26 @@
 									</c:choose>
 							 	</div>
 							 	</c:when> -->
-							 		<input type="hidden" name="activeBlock" id="activeBlock" ng-model="companyDetail.activeFlag"/>
-							 		<input type="hidden" name="page" id="page" ng-model="companyProfile" />
+								<input type="hidden" name="activeBlock" id="activeBlock"
+									ng-model="companyDetail.activeFlag" />
+								<input type="hidden" name="page" id="page"
+									ng-model="companyProfile" />
 						</div>
 					</form>
 				</div>
 			</div>
-		</div><!-- /.col-->
-	</div><!-- /.row -->
-	<!--
-	<div class="row">
+		</div>
+		<!-- /.col-->
+	</div>
+	<!-- /.row -->
+	
+	<div class="row" ng-show="companyDetail.companyId != 0">
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<form name="userListDetail" id="userListDetail" method="post" action="" enctype="multipart/form-data">
 				<input type="hidden" name="companyId" id="companyId" ng-model="companyDetail.companyId"/>
 				<input type="hidden" name="companyName" id="companyName" ng-model="companyDetail.name"/>
-				<div class="panel-heading"><strong>{{companyDetail.name}}</strong> - Company Users <a href="javascript:loadUserDetail();" class="btn btn-primary">New</a>
+				<div class="panel-heading"><strong>{{companyDetail.companyName}}</strong> - Company Users <a href="javascript:loadUserDetail();" class="btn btn-primary">New</a>
 				<c:if test="${userRole eq superAdminRole}">
 				<a href="" onclick="document.getElementById('uploadCSV').click(); return false" class="btn btn-primary" id="importCSV">Import CSV File</a>
 				</c:if>
@@ -154,7 +179,7 @@
 					<table id="userListTable" data-search="true" data-pagination="true" data-show-refresh="false"
 							data-show-toggle="false" data-show-columns="false"
 							data-search="true" data-select-item-name="userId"
-							data-sort-name="userId" data-sort-order="desc" bootstrap-table="">
+							data-sort-name="userId" data-sort-order="desc" user-list-table-directive>
 					    <thead>
 					    <tr>
 					        <th data-field="userId" data-checkbox="true" class="bs-checkbox"
@@ -172,7 +197,8 @@
 				</div>
 			</div>
 		</div>
-	</div><!--/.row-->	
+	</div><!--/.row-->
 	</c:if>
-		
-</div><!--/.main-->
+
+</div>
+<!--/.main-->
