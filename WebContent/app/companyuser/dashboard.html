@@ -1,26 +1,36 @@
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+<div ng-controller="companyuserDashboardController"
+	class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 	<div class="row">
 		<ol class="breadcrumb">
-			<li><a href="companyUserDashboard.do"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li><a href="companyUserDashboard.do"><span
+					class="glyphicon glyphicon-home"></span></a></li>
 			<li class="active">Dashboard</li>
 		</ol>
-	</div><!--/.row-->
-	
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">&nbsp;</div>
+	</div>
+	<!--/.row-->
+
 	<div class="row">
 		<div class="col-lg-12">
-			&nbsp;
-		</div>
-	</div><!--/.row-->
-       
-    <div class="row">
-		<div class="col-lg-12">
 			<div class="alert bg-primary" role="alert">
-				<span class="glyphicon glyphicon-info-sign"></span> Welcome to the Client Portal! See this <a href="#" data-remodal-target="videoModal">Video Tutorial</a> to get started! <a href="#" class="pull-right" data-dismiss="alert"><span class="glyphicon glyphicon-remove"></span></a>
-				<p><a href="#" data-remodal-target="modal" id="test"></a></p>
-				<p><a href="#" data-remodal-target="modalWarning" id="modalWarning"></a></p>
+				<span class="glyphicon glyphicon-info-sign"></span> Welcome to the
+				Client Portal! See this <a href="#" data-remodal-target="videoModal">Video
+					Tutorial</a> to get started! <a href="#" class="pull-right"
+					data-dismiss="alert"><span class="glyphicon glyphicon-remove"></span></a>
+				<p>
+					<a href="#" data-remodal-target="modal" id="test"></a>
+				</p>
+				<p>
+					<a href="#" data-remodal-target="modalWarning" id="modalWarning"></a>
+				</p>
 			</div>
 		</div>
-	</div><!--/.row-->
+	</div>
+	<!--/.row-->
 	<div class="row">
 		<div class="col-md-6">
 			<div class="panel panel-blue panel-widget ">
@@ -29,13 +39,16 @@
 						<em class="glyphicon glyphicon-tint glyphicon-l"></em>
 					</div>
 					<div class="col-sm-9 col-lg-7 widget-right">
-						<div class="large">{{totalUserWaterLogged}} ${liquidUnit}</div>
-						<div class="text-muted">Water Logged Today (<a href="loadWaterIntake.do">add</a>)</div>
+						<div class="large">{{summaryWidget.totalUserWaterLogged}}
+							{{summaryWidget.liquidUnit}}</div>
+						<div class="text-muted">
+							Water Logged Today (<a href="loadWaterIntake.do">add</a>)
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="col-md-6">
 			<div class="panel panel-red panel-widget">
 				<div class="row no-padding">
@@ -43,60 +56,74 @@
 						<em class="glyphicon glyphicon-stats glyphicon-l"></em>
 					</div>
 					<div class="col-sm-9 col-lg-7 widget-right">
-						<div class="large">${goalAchievedInMonth}</div>
+						<div class="large">{{summaryWidget.goalAchievedInMonth}}</div>
 						<div class="text-muted">Goals Achieved This Month</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div><!--/.row-->
-		
+	</div>
+	<!--/.row-->
+
 	<div class="row">
 		<div class="col-md-8">
-		
-			<div class="panel panel-default">
-				<div class="panel-heading">My Water Intake History (<a href="actualVsGoalDetailReport.do">actual vs goal</a>)</div>
-				<div class="panel-body">
-					<div class="canvas-wrapper">
-						<canvas class="main-chart" id="waterIntakeHistoryChart" height="200" width="600"></canvas>
+
+			<div id="line-chart-company-performance"
+				ng-controller="MyPerformanceChartController">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						My Water Intake History (<a href="#/actualVsGoalDetailAdminReport">actual
+							vs goal</a>)
+					</div>
+
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas id="line" class="chart chart-line" chart-data="data"
+								chart-labels="labels" chart-legend="false"
+								chart-click="lineChartClick" chart-series="series" height="200"
+								width="600"></canvas>
+						</div>
 					</div>
 				</div>
 			</div>
-			
-		</div><!--/.col-->
-		
+		</div>
+		<!--/.col-->
+
 		<div class="col-md-4">
-		
+
 			<div class="panel panel-blue">
-				<div class="panel-heading dark-overlay"><span class="glyphicon glyphicon-user"></span>Top 5 Users</div>
+				<div class="panel-heading dark-overlay">
+					<span class="glyphicon glyphicon-user"></span>Top 5 Users
+				</div>
 				<div class="panel-body">
 					<ul class="todo-list">
-					<c:forEach var="user" items="${top5CompanyUser}">
-					<li class="todo-list-item">
-						<div class="checkbox">
-							<c:choose>
-							<c:when test="${user[1] eq userId}">
-							<strong>Me</strong>
-							</c:when>
-							<c:otherwise>
-							${user[2]} ${user[3]}
-							</c:otherwise>
-							</c:choose>
-						</div>
-					</li>
-					</c:forEach>
-					<c:if test="${userRank ne null and userRank gt 0}">
-					<li class="todo-list-item">
-						<div class="checkbox">
-							<strong>${userRank}. Me</strong>
-						</div>
-					</li>
-					</c:if>
+
+						<li class="todo-list-item" ng-repeat="user in top5CompanyUser">
+							<div class="checkbox">
+
+								<div ng-show="loginBean.userId == user.userId">
+									<strong>Me</strong>
+								</div>
+								<div ng-show="loginBean.userId != user.userId">
+									{{user.firstName}} {{user.lastName}}</div>
+
+							</div>
+						</li>
+
+
+						<li class="todo-list-item">
+							<div class="checkbox">
+								<strong>143. Me</strong>
+							</div>
+						</li>
+
 					</ul>
 				</div>
-				
+
 			</div>
-						
-		</div><!--/.col-->
+
+		</div>
+		<!--/.col-->
 	</div>
-</div><!--/.main-->
+</div>
+<!--/.main-->

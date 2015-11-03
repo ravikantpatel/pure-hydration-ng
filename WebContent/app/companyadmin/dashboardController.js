@@ -22,13 +22,7 @@ pureHydrationAppControllers.controller('companyadminDashboardController', [
 			$scope.summaryWidget.completed12DBluePrint = 11;
 
 			$scope.top10CompanyUser = UserService.getUserDetails();
-			$scope.departmentwiseWaterIntakeHistory = [];
-			$scope.locationwiseWaterIntakeHistory = [];
-
-			var maleFemaleChartLabel = new Array();
-			var maleFemaleData1 = new Array();
-			var maleFemaleData2 = new Array();
-
+			
 		} ]);
 
 pureHydrationAppControllers

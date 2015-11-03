@@ -51,7 +51,7 @@ pureHydrationServices
 								lastName : 'Patel',
 								department : 'IT',
 								emailId : 'parth.patel@spec-india.com',
-								type : 'super_admin',
+								type : 'company_user',
 								status : 'Active',
 								companyId : 105,
 								link : '<a href="#/editCompany:105" onclick="this.parentNode.submit()">Edit</a>'

@@ -34,6 +34,7 @@ pureHydrationAppControllers.controller('LoginController',
 							AuthService.setStatus(true);
 							AuthService.setUserRole(USER_ROLES.SUPER_ADMIN);
 							AuthService.setUserCompanyId(105);
+							AuthService.setUserId(1);
 
 						} else if ($scope.loginForm.emailId == 'admin@test.com'
 								&& $scope.loginForm.password == 'test') {
@@ -41,6 +42,7 @@ pureHydrationAppControllers.controller('LoginController',
 							AuthService.setStatus(true);
 							AuthService.setUserRole(USER_ROLES.COMPANY_ADMIN);
 							AuthService.setUserCompanyId(105);
+							AuthService.setUserId(2);
 
 						} else if ($scope.loginForm.emailId == 'user@test.com'
 								&& $scope.loginForm.password == 'test') {
@@ -48,6 +50,7 @@ pureHydrationAppControllers.controller('LoginController',
 							AuthService.setStatus(true);
 							AuthService.setUserRole(USER_ROLES.COMPANY_USER);
 							AuthService.setUserCompanyId(105);
+							AuthService.setUserId(4);
 						}
 						$scope.loginBean.loggedIn = AuthService.getStatus();
 						if ($scope.loginBean.loggedIn == true) {
