@@ -1,0 +1,45 @@
+<div ng-controller="VideosListController" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">Manage Resources / Videos</li>
+			</ol>
+		</div>
+		<!--/.row-->
+
+		<div class="row">
+			<div class="col-lg-12">&nbsp;</div>
+		</div>
+		<!--/.row-->
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Video List <a href="#/Detail/videos/0"
+							class="btn btn-primary">New</a>
+					</div>
+					<div class="panel-body">
+					<div id="divError" class="form-group" style="color: red;"></div>
+					<div id="divMessage" class="form-group" style="color: green;"></div>
+						<table id="videoListTable" data-search="true"
+							data-pagination="true" data-show-refresh="false"
+							data-show-toggle="false" data-show-columns="false"
+							data-search="true" data-select-item-name="videoId"
+							data-sort-name="videoId" data-sort-order="desc" videos-list-table-directive>
+							<thead>
+								<tr>
+									<th data-field="videoId" data-checkbox="true"
+										class="bs-checkbox" style="width: 36px;"></th>
+									<th data-field="title" data-sortable="true">Title</th>
+									<th data-field="description" data-sortable="true">Description</th>
+									<th data-field="link" data-sortable="true">Link</th>
+									<th data-field="edit" data-sortable="false">Edit</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -19,9 +19,8 @@
 	<div id="container">
 		<header></header>
 		<div ng-include src="'app/common/header.html'"></div>
-		<div ng-if="loginBean.loggedIn == true">
-			<div ng-include src="'app/common/menu.html'"></div>
-		</div>
+		<div ng-show="loginBean.loggedIn == true" ng-include
+			src="'app/common/menu.html'"></div>
 		<div id="main" role="main">
 			<div ng-view></div>
 			<!--	
@@ -43,12 +42,12 @@
 	<script src="assets/lib/others/jquery.datetimepicker.js"></script>
 	<script src="assets/lib/others/jquery.mask.js"></script>
 	<script src="assets/lib/others/jquery.numeric.js"></script>
-<!-- 	<script src="assets/lib/others/jquery-loader.js"></script> -->
+	<!-- 	<script src="assets/lib/others/jquery-loader.js"></script> -->
 	<script src="assets/lib/others/common.js"></script>
 	<script src="assets/lib/others/Chart.js"></script>
 	<script src="assets/lib/others/xlsx.core.min.js"></script>
 	<script src="assets/lib/others/alasql.js"></script>
-	
+
 	<script src="assets/lib/angular/angular.js"></script>
 	<script src="assets/lib/angular/angular-aria.js"></script>
 	<script src="assets/lib/angular/angular-animate.js"></script>
@@ -75,6 +74,8 @@
 	<script src="app/user/userListService.js"></script>
 	<script src="app/companyadmin/waterIntakeService.js"></script>
 	<script src="app/products/productListService.js"></script>
+	<script src="app/documents/documentListService.js"></script>
+	<script src="app/videos/videosListService.js"></script>
 
 	<!-- Modules >> Controllers >> Directives -->
 	<script src="app/appController.js"></script>
@@ -89,19 +90,36 @@
 	<script src="app/superadmin/dashboardController.js"></script>
 	<!-- Company Admin -->
 	<script src="app/companyadmin/dashboardController.js"></script>
-	<!-- Company -->	
+	<!-- Company -->
 	<script src="app/company/companyListController.js"></script>
 	<script src="app/company/companyListDirective.js"></script>
 	<script src="app/company/companyDetailController.js"></script>
-	<script src="app/company/companyDetailDirective.js"></script>
+	
 	<!-- Resources -->
 	<script src="app/resources/resourcesController.js"></script>
 	<!-- Manage Resources -->
 	<script src="app/manageresources/manageResourcesController.js"></script>
-	<!-- Produt -->
+	<!-- Product -->
 	<script src="app/products/productListController.js"></script>
 	<script src="app/products/productListDirective.js"></script>
+	<script src="app/products/productDetailController.js"></script>
 
+	<!-- Document -->
+	<script src="app/documents/documentListController.js"></script>
+	<script src="app/documents/documentListDirective.js"></script>
+	<script src="app/documents/documentDetailController.js"></script>
+
+	<!-- Video -->
+	<script src="app/videos/videosListController.js"></script>
+	<script src="app/videos/videosListDirective.js"></script>
+	<script src="app/videos/videosDetailController.js"></script>
+	
+	<!-- User -->
+	<script src="app/user/userListTableDirective.js"></script>
+	<script src="app/user/userListTableController.js"></script>
+	<script src="app/user/userListController.js"></script>
+	<script src="app/user/csvUserListUploadDirective.js"></script>
+	<script src="app/user/importUsersCSVDirective.js"></script>
 
 </body>
 </html>

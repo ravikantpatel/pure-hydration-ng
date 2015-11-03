@@ -1,4 +1,5 @@
-<div ng-controller="CompanyDetailController" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<div ng-controller="CompanyDetailController"
+	class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 	<div class="row">
 		<ol class="breadcrumb">
 			<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -91,8 +92,8 @@
 									<div class="cropit-image-preview" id="imagePreview"
 										style="display: block;"></div>
 									<p>
-										<img src="{{companyLogoUrl}}" id="smallImage"
-											style="margin-top: 7px; border: 1px solid #ccc;" />
+										<img src="{{companyDetail.companyLogoUrl}}" id="smallImage"
+											style="margin-top: 7px; border: 1px solid #ccc;" width="50%" />
 									</p>
 									<p class="help-block">Logo size: 416px wide by 107px high</p>
 									<div id="imgLabel" class="image-size-label"
@@ -124,8 +125,8 @@
 									ng-model="companyDetail.website"
 									placeholder="http://example.com" />
 							</div>
-							<c:choose>
-								<!-- <c:when test="${paramValues.page[0] ne 'companyProfile' and page ne 'companyProfile'}">	
+							<!-- <c:choose>
+								<c:when test="${paramValues.page[0] ne 'companyProfile' and page ne 'companyProfile'}">	
                                 <div class="form-group">
 									<label>Status</label><label style="color: red;">*</label><br />
 									<c:choose>
@@ -146,10 +147,9 @@
 									</c:choose>
 							 	</div>
 							 	</c:when> -->
-								<input type="hidden" name="activeBlock" id="activeBlock"
-									ng-model="companyDetail.activeFlag" />
-								<input type="hidden" name="page" id="page"
-									ng-model="companyProfile" />
+							<input type="hidden" name="activeBlock" id="activeBlock"
+								ng-model="companyDetail.activeFlag" /> <input type="hidden"
+								name="page" id="page" ng-model="companyProfile" />
 						</div>
 					</form>
 				</div>
@@ -158,47 +158,13 @@
 		<!-- /.col-->
 	</div>
 	<!-- /.row -->
-	
-	<div class="row" ng-show="companyDetail.companyId != 0">
+
+	<div class="row" ng-show="showCompanyUsers == true">
 		<div class="col-lg-12">
-			<div class="panel panel-default">
-				<form name="userListDetail" id="userListDetail" method="post" action="" enctype="multipart/form-data">
-				<input type="hidden" name="companyId" id="companyId" ng-model="companyDetail.companyId"/>
-				<input type="hidden" name="companyName" id="companyName" ng-model="companyDetail.name"/>
-				<div class="panel-heading"><strong>{{companyDetail.companyName}}</strong> - Company Users <a href="javascript:loadUserDetail();" class="btn btn-primary">New</a>
-				<c:if test="${userRole eq superAdminRole}">
-				<a href="" onclick="document.getElementById('uploadCSV').click(); return false" class="btn btn-primary" id="importCSV">Import CSV File</a>
-				</c:if>
-       			<a href="" class="btn btn-primary" id="export" style="float: right;margin-top: 6px;">Export</a>
-       			<input type="file" id="uploadCSV" name="uploadCSV" style="visibility: hidden; width: 1px; height: 1px"/>
-				</div>
-				</form>
-				<div class="panel-body">
-					<div id="divError" class="form-group" style="color: red;"></div>
-					<div id="divMessage" class="form-group" style="color: green;"></div>
-					<table id="userListTable" data-search="true" data-pagination="true" data-show-refresh="false"
-							data-show-toggle="false" data-show-columns="false"
-							data-search="true" data-select-item-name="userId"
-							data-sort-name="userId" data-sort-order="desc" user-list-table-directive>
-					    <thead>
-					    <tr>
-					        <th data-field="userId" data-checkbox="true" class="bs-checkbox"
-										style="width: 36px;"></th>
-					        <th data-field="firstName" data-sortable="true">First Name</th>
-                            <th data-field="lastName" data-sortable="true">Last Name</th>
-					        <th data-field="department"  data-sortable="true">Department</th>
-					        <th data-field="emailId" data-sortable="true">Email</th>
-                            <th data-field="type" data-sortable="true">Type</th>
-                            <th data-field="status" data-sortable="true">Status</th>
-                            <th data-field="link" data-sortable="false">Edit</th>
-					    </tr>
-					    </thead>
-					</table>
-				</div>
-			</div>
+			<div ng-include src="'app/user/userListTable.html'"></div>
 		</div>
-	</div><!--/.row-->
-	</c:if>
+	</div>
+	<!--/.row-->
 
 </div>
 <!--/.main-->

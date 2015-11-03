@@ -9,6 +9,7 @@ pureHydrationServices.factory('AuthService',
 				currentUser : '',
 				userRole : '',
 				selectedMenuItem : '',
+				companyId : 0,
 				loginTimeStamp : new Date().getTime()
 			});
 			return {
@@ -41,6 +42,12 @@ pureHydrationServices.factory('AuthService',
 				},
 				getSelectedMenuItem : function() {
 					return storage.selectedMenuItem;
+				},
+				setUserCompanyId : function(companyId) {
+					storage.companyId = companyId;
+				},
+				getUserCompanyId : function() {
+					return storage.companyId;
 				},
 				checkLocalStorage : function() {
 					// console.log('Diff::'+ (new Date().getTime() -

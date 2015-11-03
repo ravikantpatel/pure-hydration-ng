@@ -1,0 +1,44 @@
+<div class="panel panel-default" ng-controller="UserListTableController">
+	<form name="userListDetail" id="userListDetail" method="post" action=""
+		enctype="multipart/form-data">
+		<input type="hidden" name="companyId" id="companyId"
+			ng-model="companyDetail.companyId" /> <input type="hidden"
+			name="companyName" id="companyName" ng-model="companyDetail.name" />
+		<div class="panel-heading" import-users-directive>
+			<strong>{{companyName}}</strong> - Company Users <a
+				href="javascript:loadUserDetail();" class="btn btn-primary">New</a>
+			{{param.file}}
+			<a ng-show="loginBean.userRole == user_roles.SUPER_ADMIN.role"
+				href=""
+				onclick="document.getElementById('uploadCSV').click(); return false"
+				class="btn btn-primary" id="importCSV">Import CSV File</a> <a
+				href="" ng-click="exportToXLS()" class="btn btn-primary" id="export"
+				style="float: right; margin-top: 6px;">Export</a> <input type="file"
+				id="uploadCSV" name="uploadCSV" file="param.file"
+				style="visibility: hidden; width: 1px; height: 1px" />
+		</div>
+	</form>
+	<div class="panel-body">
+		<div id="divError" class="form-group" style="color: red;"></div>
+		<div id="divMessage" class="form-group" style="color: green;"></div>
+		<table id="userListTable" data-search="true" data-pagination="true"
+			data-show-refresh="false" data-show-toggle="false"
+			data-show-columns="false" data-search="true"
+			data-select-item-name="userId" data-sort-name="userId"
+			data-sort-order="desc" user-list-table-directive>
+			<thead>
+				<tr>
+					<th data-field="userId" data-checkbox="true" class="bs-checkbox"
+						style="width: 36px;"></th>
+					<th data-field="firstName" data-sortable="true">First Name</th>
+					<th data-field="lastName" data-sortable="true">Last Name</th>
+					<th data-field="department" data-sortable="true">Department</th>
+					<th data-field="emailId" data-sortable="true">Email</th>
+					<th data-field="type" data-sortable="true">Type</th>
+					<th data-field="status" data-sortable="true">Status</th>
+					<th data-field="link" data-sortable="false">Edit</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>

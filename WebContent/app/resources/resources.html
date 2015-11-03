@@ -21,8 +21,8 @@
 					<p align="center">
 						<a
 							href="https://itunes.apple.com/us/app/hydrate-now/id986348989?ls=1&mt=8"
-							target="_blank"><img
-							src="assets/images/AppStoreButton.png" width="65%" border="0" /></a>
+							target="_blank"><img src="assets/images/AppStoreButton.png"
+							width="65%" border="0" /></a>
 					</p>
 				</div>
 			</div>
@@ -36,9 +36,8 @@
 					<p>If you are using an Android device, please download the app
 						by clicking the link below from your device.</p>
 					<p align="center">
-						<a href="#"><img
-							src="assets/images/google-play-download.png" width="65%"
-							border="0" /></a>
+						<a href="#"><img src="assets/images/google-play-download.png"
+							width="65%" border="0" /></a>
 					</p>
 				</div>
 			</div>
@@ -51,71 +50,45 @@
 		<div class="col-lg-12">
 			<h2>Poseters and Documents</h2>
 		</div>
-		<!-- <c:set var="count" scope="page" value="1" />
-		<c:forEach var="documentList" items="${documentList}">
-			<div class="col-md-4">
-				<c:if test="${count eq 1}">
-					<div class="panel panel-default">
-				</c:if>
-				<c:if test="${count eq 2}">
-					<div class="panel panel-primary">
-				</c:if>
-				<c:if test="${count eq 3}">
-					<div class="panel panel-success">
-				</c:if>
-				<c:if test="${count eq 4}">
-					<div class="panel panel-info">
-				</c:if>
-				<c:if test="${count eq 5}">
-					<div class="panel panel-warning">
-						<c:set var="count" scope="page" value="0" />
-				</c:if>
-				<div class="panel-heading">${documentList.name}</div>
+
+
+
+		<!-- <div
+					> -->
+		<div ng-repeat="document in documentList" class="col-md-4">
+			<div class="panel"
+				ng-class="($index + 1 % 5) == 1 ? 'panel-default' : ( ($index + 1 % 5) == 2 ? 'panel-primary' : ( ($index + 1 % 5) == 3 ? 'panel-success' : ( ($index + 1 % 5) == 4 ? 'panel-info' : ( ($index + 1 % 5) == 0 ? 'panel-warning' : 'panel-default')))) ">
+				<div class="panel-heading">
+					<a href="#/Detail/documents/{{document.documentId}}">{{document.documentName}}</a>
+				</div>
 				<div class="panel-body">
-					<p>${documentList.description}</p>
+					<p>{{document.description}}</p>
 				</div>
 			</div>
-	</div>
-	<c:set var="count" value="${count + 1}" scope="page" />
-	</c:forEach> -->
-	<!-- c:forEach var="productList" items="${productList}">
-		<div class="col-md-4">
-			<c:if test="${count eq 1}">
-				<div class="panel panel-default">
-			</c:if>
-			<c:if test="${count eq 2}">
-				<div class="panel panel-primary">
-			</c:if>
-			<c:if test="${count eq 3}">
-				<div class="panel panel-success">
-			</c:if>
-			<c:if test="${count eq 4}">
-				<div class="panel panel-info">
-			</c:if>
-			<c:if test="${count eq 5}">
-				<div class="panel panel-warning">
-					<c:set var="count" scope="page" value="0" />
-			</c:if>
-			<div class="panel-heading">${productList.productName}</div>
-			<div class="panel-body">
-				<p>${productList.description}</p>
+		</div>
+
+		<div ng-repeat="product in productList" class="col-md-4">
+			<div class="panel"
+				ng-class="($index + 1 % 5) == 1 ? 'panel-default' : ( ($index + 1 % 5) == 2 ? 'panel-primary' : ( ($index + 1 % 5) == 3 ? 'panel-success' : ( ($index + 1 % 5) == 4 ? 'panel-info' : ( ($index + 1 % 5) == 0 ? 'panel-warning' : 'panel-default')))) ">
+				<div class="panel-heading">{{product.productName}}</div>
+				<div class="panel-body">
+					<p>{{product.description}}</p>
+				</div>
 			</div>
 		</div>
-</div>
-<c:set var="count" value="${count + 1}" scope="page" />
-</c:forEach> -->
-</div>
-<!--/.row-->
-<div class="row">
-	<div class="col-lg-12">
-		<h2>Video Tutorials</h2>
+		
 	</div>
-	<div class="col-md-12">
-		<div class="panel panel-default">
-			<div class="panel-body tabs">
+	<!--/.row-->
+	<div class="row">
+		<div class="col-lg-12">
+			<h2>Video Tutorials</h2>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-body tabs">
 
-				<ul class="nav nav-pills">
-					<!-- <c:if test="${fn:length(videoList) gt 0}">
+					<ul class="nav nav-pills">
+						<!-- <c:if test="${fn:length(videoList) gt 0}">
 						<li class="active"><a href="#pilltab1" data-toggle="tab"><c:choose>
 									<c:when test="${fn:length(videoList.get(0).title) gt 6}">${fn:substring(videoList.get(0).title, 0, 6)}...</c:when>
 									<c:otherwise> ${videoList.get(0).title}</c:otherwise>
@@ -187,10 +160,10 @@
 									<c:otherwise> ${videoList.get(11).title}</c:otherwise>
 								</c:choose></a></li>
 					</c:if> -->
-				</ul>
+					</ul>
 
-				<div class="tab-content">
-					<!-- <c:if test="${fn:length(videoList) gt 0}">
+					<div class="tab-content">
+						<!-- <c:if test="${fn:length(videoList) gt 0}">
 						<div class="tab-pane fade in active" id="pilltab1">
 							<h4>
 								<a href="${videoList.get(0).link}" target="_blank">${videoList.get(0).title}</a>
@@ -286,11 +259,11 @@
 							<p>${videoList.get(11).description}</p>
 						</div>
 					</c:if> -->
+					</div>
 				</div>
 			</div>
+			<!--/.panel-->
 		</div>
-		<!--/.panel-->
+		<!-- /.col-->
 	</div>
-	<!-- /.col-->
-</div>
-<!-- /.row -->
+	<!-- /.row -->

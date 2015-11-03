@@ -7,8 +7,9 @@ pureHydrationAppControllers.controller('MenuController', [
 		'AuthService',
 		'USER_ROLES',
 		'$location',
-		function($scope, AuthService, USER_ROLES, $location) {
-
+		'CompanyService',
+		function($scope, AuthService, USER_ROLES, $location, CompanyService) {
+			AuthService.checkAuthentication();
 			$scope.user_roles = USER_ROLES
 
 			$scope.selectMenu = function(event) {
@@ -17,7 +18,9 @@ pureHydrationAppControllers.controller('MenuController', [
 						.removeClass('active');
 				angular.element(event.target.parentNode).addClass('active');
 			};
-
+			var companyDetail = CompanyService
+					.getCompanyDetailById($scope.loginBean.userCompanyId);
+			$scope.companyLogoUrl = companyDetail.companyLogoUrl;
 			$scope.selectMenuItem = function(menuItem) {
 				AuthService.setSelectedMenuItem(menuItem);
 				$scope.loginBean.selectedMenuItem = menuItem;
