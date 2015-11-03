@@ -14,9 +14,10 @@ pureHydrationServices
 								firstName : 'Ravikant',
 								lastName : 'Patel',
 								department : 'IT',
-								emailId : 'rk14.patel@gmail.com',
+								emailId : 'ravikant.patel@spec-india.com',
 								type : 'super_admin',
 								status : 'Active',
+								companyId : 105,
 								link : '<a href="#/editCompany:105" onclick="this.parentNode.submit()">Edit</a>'
 							},
 							{
@@ -25,9 +26,10 @@ pureHydrationServices
 								firstName : 'Arun',
 								lastName : 'Patel',
 								department : 'IT',
-								emailId : 'rk14.patel@gmail.com',
-								type : 'super_admin',
+								emailId : 'arun.patel@spec-india.com',
+								type : 'company_admin',
 								status : 'Active',
+								companyId : 105,
 								link : '<a href="#/editCompany:105" onclick="this.parentNode.submit()">Edit</a>'
 							},
 							{
@@ -36,9 +38,22 @@ pureHydrationServices
 								firstName : 'Vipul',
 								lastName : 'Vaghela',
 								department : 'IT',
-								emailId : 'rk14.patel@gmail.com',
+								emailId : 'vipul.vaghela@spec-india.com',
 								type : 'super_admin',
 								status : 'Active',
+								companyId : 105,
+								link : '<a href="#/editCompany:105" onclick="this.parentNode.submit()">Edit</a>'
+							},
+							{
+								userId : 4,
+								title : 'Mr',
+								firstName : 'Parth',
+								lastName : 'Patel',
+								department : 'IT',
+								emailId : 'parth.patel@spec-india.com',
+								type : 'super_admin',
+								status : 'Active',
+								companyId : 105,
 								link : '<a href="#/editCompany:105" onclick="this.parentNode.submit()">Edit</a>'
 							} ];
 
@@ -54,6 +69,14 @@ pureHydrationServices
 								}
 							}
 							return null;
+						},
+						getUserDetailByCompanyId : function(companyId) {
+							var res = alasql(
+									'SELECT * FROM ? WHERE companyId = ?', [
+											userDetails, parseInt(companyId) ]);
+							console.log('users::'+res);
+							return res;
+
 						}
 					};
 				});

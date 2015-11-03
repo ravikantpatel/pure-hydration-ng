@@ -10,5 +10,6 @@ pureHydrationAppControllers.controller('AppController', [ '$scope',
 			$scope.loginBean.loggedIn = AuthService.getStatus();
 			$scope.loginBean.currentUser = AuthService.getCurrentUser();
 			$scope.loginBean.userRole = AuthService.getUserRole();
+			$scope.loginBean.userCompanyId = AuthService.getUserCompanyId();
 			$scope.loginBean.selectedMenuItem = AuthService.getSelectedMenuItem();
 		} ]);

@@ -3,7 +3,7 @@
  */
 
 pureHydrationAppControllers.controller('ResourcesController', [ '$scope',
-		'AuthService', 'USER_ROLES', '$window',
-		function($scope, AuthService, USER_ROLES, $window) {
-
+		'AuthService', 'USER_ROLES', '$window', 'DocumentService',
+		function($scope, AuthService, USER_ROLES, $window, DocumentService) {
+			$scope.documentList = DocumentService.getDocumentDetails();
 		} ]);

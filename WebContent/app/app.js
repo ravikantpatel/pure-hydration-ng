@@ -38,21 +38,17 @@ pureHydrationApp.config([ '$routeProvider', 'KeepaliveProvider',
 			}).when('/List/:entityType', {
 				controller : 'ListRouteController',
 				templateUrl : 'app/common/placeholder.html'
-			}).when('/companyList', {
-				controller : 'CompanyListController',
-				templateUrl : 'app/company/list.html'
-			}).when('/companyDetail/:companyId', {
-				controller : 'CompanyDetailController',
-				templateUrl : 'app/company/detail.html'
-			}).when('/Detail/:entityType/:id', {
+			}).when('/Detail/:entityType/:id?', {
 				controller : 'DetailRouteController',
-				templateUrl : 'app/common/placeholder.html'
+				templateUrl : 'app/common/placeholder.html',
 			}).when('/resources', {
 				controller : 'ResourcesController',
 				templateUrl : 'app/resources/resources.html'
 			}).when('/manageResources', {
 				controller : 'ManageResourcesController',
 				templateUrl : 'app/manageresources/manageresources.html'
+			}).when('/companyProfile', {
+				redirectTo : '/Detail/company'
 			}).otherwise({
 				redirectTo : '/'
 			});

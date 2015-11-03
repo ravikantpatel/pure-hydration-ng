@@ -39,6 +39,7 @@ pureHydrationAppControllers.controller('LoginController',
 							AuthService.setCurrentUser('Company Admin');
 							AuthService.setStatus(true);
 							AuthService.setUserRole(USER_ROLES.COMPANY_ADMIN);
+							AuthService.setUserCompanyId(105);
 
 						} else if ($scope.loginForm.emailId == 'user@test.com'
 								&& $scope.loginForm.password == 'test') {

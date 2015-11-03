@@ -1,7 +1,7 @@
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar"
 	ng-controller="MenuController">
 	<div class="form-group">
-		<img src="assets/images/company-logo.jpg"
+		<img src="{{companyLogoUrl}}"
 			style="width: 100%; height: 100%;" border="1">
 		<!-- <img
 			src="resources/images/settings.png"
@@ -40,11 +40,12 @@
 					class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
 			<li ng-class="{active : isSelected('companyAdminProfile')}"
 				id="companyAdminProfile"
-				ng-click="selectMenuItem('companyAdminProfile')"><a><span
+				ng-click="selectMenuItem('companyAdminProfile')"><a
+				href="#/companyProfile"><span
 					class="glyphicon glyphicon-info-sign"></span> Company Profile</a></li>
 			<li ng-class="{active : isSelected('companyAdminUsers')}"
 				id="companyAdminUsers"
-				ng-click="selectMenuItem('companyAdminUsers')"><a><span
+				ng-click="selectMenuItem('companyAdminUsers')"><a href="#/List/user/"><span
 					class="glyphicon glyphicon-user"></span> Company Users</a></li>
 			<li ng-class="{active : isSelected('companyAdminDepartments')}"
 				id="companyAdminDepartments"
