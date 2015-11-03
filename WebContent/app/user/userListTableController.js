@@ -1,5 +1,5 @@
 /**
- * Company List Controller
+ * User List Table Controller
  */
 
 pureHydrationAppControllers
@@ -26,7 +26,6 @@ pureHydrationAppControllers
 										[ $scope.userDetails ]);
 							};
 
-							
 							$scope.param = {};
 							$scope.config = {
 								itemsPerPage : 5,

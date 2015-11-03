@@ -38,6 +38,7 @@ pureHydrationServices.factory('DocumentService', function($http,
 		},
 		getDocumentDetailById : function(documentId) {
 
+
 			var res = alasql('SELECT * FROM ? WHERE documentId = ?', [ documentDetails, parseInt(documentId)]);
 			return res[0];
 		}

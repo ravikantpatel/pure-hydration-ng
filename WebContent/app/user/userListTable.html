@@ -1,4 +1,5 @@
 <div class="panel panel-default" ng-controller="UserListTableController">
+
 	<form name="userListDetail" id="userListDetail" method="post" action=""
 		enctype="multipart/form-data">
 		<input type="hidden" name="companyId" id="companyId"
@@ -7,9 +8,8 @@
 		<div class="panel-heading" import-users-directive>
 			<strong>{{companyName}}</strong> - Company Users <a
 				href="javascript:loadUserDetail();" class="btn btn-primary">New</a>
-			{{param.file}}
-			<a ng-show="loginBean.userRole == user_roles.SUPER_ADMIN.role"
-				href=""
+			{{param.file}} <a
+				ng-show="loginBean.userRole == user_roles.SUPER_ADMIN.role" href=""
 				onclick="document.getElementById('uploadCSV').click(); return false"
 				class="btn btn-primary" id="importCSV">Import CSV File</a> <a
 				href="" ng-click="exportToXLS()" class="btn btn-primary" id="export"
