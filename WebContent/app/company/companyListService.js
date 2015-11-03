@@ -124,10 +124,7 @@ pureHydrationServices.factory('CompanyService', function($http,PATHS) {
 					return companyDetails[i];
 				}
 			}*/
-<<<<<<< HEAD
-=======
-			console.log(res);
->>>>>>> branch 'master' of https://github.com/ravikantpatel/pure-hydration-ng
+
 			return res[0];
 		}
 	};
