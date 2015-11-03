@@ -1,5 +1,5 @@
 /**
- * Company List Controller
+ * Company Detail Controller
  */
 
 pureHydrationAppControllers

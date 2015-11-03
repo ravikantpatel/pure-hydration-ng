@@ -1,5 +1,5 @@
 /**
- * Menu Controller
+ * Manage Resources Controller
  */
 
 pureHydrationAppControllers.controller('ManageResourcesController', [ '$scope',

@@ -1,5 +1,5 @@
 /**
- * Company Service
+ * Video Service
  */
 
 pureHydrationServices.factory('VideosService', function($http,

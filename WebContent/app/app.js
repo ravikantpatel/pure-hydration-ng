@@ -1,5 +1,5 @@
 /**
- * Main app file
+ * Main app file and configurations
  */
 
 'use strict';

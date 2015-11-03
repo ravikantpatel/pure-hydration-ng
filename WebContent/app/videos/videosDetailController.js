@@ -1,5 +1,5 @@
 /**
- * Document List Controller
+ * Videos Detail Controller
  */
 
 pureHydrationAppControllers.controller('VideosDetailController', [

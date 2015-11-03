@@ -1,5 +1,5 @@
 /**
- * 
+ * User List Table Directive
  */
 
 pureHydrationAppDirectives.directive("userListTableDirective", function() {

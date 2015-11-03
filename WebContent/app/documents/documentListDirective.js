@@ -1,5 +1,5 @@
 /**
- * Company List Directive
+ * Document List Directive
  */
 
 pureHydrationAppDirectives.directive("documentListTableDirective", function() {

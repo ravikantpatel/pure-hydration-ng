@@ -1,5 +1,5 @@
 /**
- * Company List Controller
+ * Product List Controller
  */
 
 pureHydrationAppControllers.controller('ProductListController', [ '$scope',

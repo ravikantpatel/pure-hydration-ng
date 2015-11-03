@@ -1,5 +1,5 @@
 /**
- * Document List Controller
+ * Document Detail Controller
  */
 
 pureHydrationAppControllers

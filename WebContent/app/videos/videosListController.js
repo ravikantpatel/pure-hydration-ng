@@ -1,5 +1,5 @@
 /**
- * Document List Controller
+ * Videos List Controller
  */
 
 pureHydrationAppControllers.controller('VideosListController', [ '$scope',

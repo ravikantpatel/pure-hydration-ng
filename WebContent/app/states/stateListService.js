@@ -1,5 +1,5 @@
 /**
- * Company Service
+ * State Service
  */
 
 pureHydrationServices.factory('StateService', function($http) {

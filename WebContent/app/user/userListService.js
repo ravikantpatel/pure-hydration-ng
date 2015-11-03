@@ -1,5 +1,5 @@
 /**
- * Company Service
+ * User Service
  */
 
 pureHydrationServices

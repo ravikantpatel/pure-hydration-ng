@@ -1,5 +1,5 @@
 /**
- * 
+ * Import Users Directive
  */
 
 pureHydrationAppDirectives.directive("importUsersDirective", function() {
