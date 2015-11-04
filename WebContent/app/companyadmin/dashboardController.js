@@ -12,8 +12,8 @@ pureHydrationAppControllers.controller('companyadminDashboardController', [
 		'WaterIntakeService',
 		function($scope, $window, AuthService, UNITS, CompanyService,
 				UserService, WaterIntakeService) {
-			AuthService.checkAuthentication();
 			
+			$scope.pagePath = 'Dashboard';
 			$scope.summaryWidget = {};
 			$scope.summaryWidget.totalCompanyWaterLogged = 100;
 			$scope.summaryWidget.liquidUnit = UNITS.liquidUnit;

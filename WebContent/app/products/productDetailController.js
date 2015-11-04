@@ -14,9 +14,7 @@ pureHydrationAppControllers.controller('ProductDetailController', [
 		'UserService',
 		function($scope, AuthService, $window, UNITS, ProductService,
 				CountryService, StateService, $routeParams, UserService) {
-			if (AuthService.getStatus() == false) {
-				$window.location.href = '#/login';
-			}
+			
 			$scope.productDetails = ProductService
 					.getProductDetailById($routeParams.id);
 			if ($scope.productDetails == null) {

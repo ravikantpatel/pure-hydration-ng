@@ -3,14 +3,13 @@
  */
 
 pureHydrationAppControllers.controller('MenuController', [
+		'$rootScope',
 		'$scope',
 		'AuthService',
-		'USER_ROLES',
 		'$location',
 		'CompanyService',
-		function($scope, AuthService, USER_ROLES, $location, CompanyService) {
+		function($rootScope, $scope, AuthService, $location, CompanyService) {
 			AuthService.checkAuthentication();
-			$scope.user_roles = USER_ROLES
 
 			$scope.selectMenu = function(event) {
 
@@ -19,15 +18,15 @@ pureHydrationAppControllers.controller('MenuController', [
 				angular.element(event.target.parentNode).addClass('active');
 			};
 			var companyDetail = CompanyService
-					.getCompanyDetailById($scope.loginBean.userCompanyId);
+					.getCompanyDetailById($rootScope.loginBean.userCompanyId);
 			$scope.companyLogoUrl = companyDetail.companyLogoUrl;
 			$scope.selectMenuItem = function(menuItem) {
 				AuthService.setSelectedMenuItem(menuItem);
-				$scope.loginBean.selectedMenuItem = menuItem;
+				$rootScope.loginBean.selectedMenuItem = menuItem;
 			}
 
 			$scope.isSelected = function(menuItem) {
-				return $scope.loginBean.selectedMenuItem == menuItem;
+				return $rootScope.loginBean.selectedMenuItem == menuItem;
 			}
 
 		} ]);

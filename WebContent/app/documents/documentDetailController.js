@@ -18,9 +18,6 @@ pureHydrationAppControllers
 						function($scope, AuthService, $window, UNITS,
 								DocumentService, CountryService, StateService,
 								$routeParams, UserService) {
-							if (AuthService.getStatus() == false) {
-								$window.location.href = '#/login';
-							}
 
 							$scope.documentDetail = DocumentService
 									.getDocumentDetailById($routeParams.id);

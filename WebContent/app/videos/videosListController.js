@@ -6,10 +6,9 @@ pureHydrationAppControllers.controller('VideosListController', [ '$scope',
 		'AuthService', '$window', 'UNITS', 'VideosService',
 
 		function($scope, AuthService, $window, UNITS, VideosService) {
-			AuthService.checkAuthentication();
 
 			$scope.videosDetails = VideosService.getVideosDetails();
-
+			$scope.pagePath = 'Manage Resources / Videos';
 			$scope.exportToXLS = function () {
 		        alasql('SELECT * INTO XLSX("videosList.xlsx",{headers:true}) FROM ?',[$scope.videosDetails]);
 		    };

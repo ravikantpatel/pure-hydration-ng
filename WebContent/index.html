@@ -19,7 +19,7 @@
 	<div id="container">
 		<header></header>
 		<div ng-include src="'app/common/header.html'"></div>
-		<div ng-show="loginBean.loggedIn == true" ng-include
+		<div ng-if="loginBean.loggedIn == true" ng-include
 			src="'app/common/menu.html'"></div>
 		<div id="main" role="main">
 			<div ng-view></div>

@@ -15,14 +15,10 @@ pureHydrationAppControllers
 						'StateService',
 						'$routeParams',
 						'UserService',
-						'USER_ROLES',
 						function($scope, AuthService, $window, UNITS,
 								CompanyService, CountryService, StateService,
-								$routeParams, UserService, USER_ROLES) {
-							if (AuthService.getStatus() == false) {
-								$window.location.href = '#/login';
-							}
-
+								$routeParams, UserService) {
+							
 							console.log('$routeParams.id:' + $routeParams.id)
 							$scope.companyDetail = CompanyService
 									.getCompanyDetailById($routeParams.id == undefined ? $scope.loginBean.userCompanyId

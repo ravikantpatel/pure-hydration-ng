@@ -1,0 +1,12 @@
+<ol class="breadcrumb">
+	<li ng-if="loginBean.userRole == user_roles.SUPER_ADMIN.role"><a
+		href="#/dashboard/superadmin"><span
+			class="glyphicon glyphicon-home"></span></a></li>
+	<li ng-if="loginBean.userRole == user_roles.COMPANY_ADMIN.role"><a
+		href="#/dashboard/companyadmin"><span
+			class="glyphicon glyphicon-home"></span></a></li>
+	<li ng-if="loginBean.userRole == user_roles.COMPANY_USER.role"><a
+		href="#/dashboard/companyuser"><span
+			class="glyphicon glyphicon-home"></span></a></li>
+	<li class="active">{{pagePath}}</li>
+</ol>
