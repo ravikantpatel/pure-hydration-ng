@@ -14,7 +14,6 @@ pureHydrationAppControllers
 
 						function($scope, AuthService, $window, UNITS,
 								UserService) {
-							AuthService.checkAuthentication();
 
 							// alert($scope.companyId)
 							$scope.userDetails = UserService

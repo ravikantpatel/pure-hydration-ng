@@ -34,25 +34,60 @@ pureHydrationApp.config([ '$routeProvider', 'KeepaliveProvider',
 				templateUrl : 'app/login/login.html'
 			}).when('/dashboard/:dashboardType', {
 				controller : 'DashboardRouteController',
-				templateUrl : 'app/common/placeholder.html'
+				templateUrl : 'app/common/placeholder.html',
+				resolve : {
+					auth : function resolveAuthentication(AuthResolver) {
+						return AuthResolver.resolve();
+					}
+				}
 			}).when('/List/:entityType', {
 				controller : 'ListRouteController',
-				templateUrl : 'app/common/placeholder.html'
+				templateUrl : 'app/common/placeholder.html',
+				resolve : {
+					auth : function resolveAuthentication(AuthResolver) {
+						return AuthResolver.resolve();
+					}
+				}
+
 			}).when('/Detail/:entityType/:id?', {
 				controller : 'DetailRouteController',
 				templateUrl : 'app/common/placeholder.html',
-			}).when('/resources', {
-				controller : 'ResourcesController',
-				templateUrl : 'app/resources/resources.html'
-			}).when('/manageResources', {
-				controller : 'ManageResourcesController',
-				templateUrl : 'app/manageresources/manageresources.html'
+				resolve : {
+					auth : function resolveAuthentication(AuthResolver) {
+						return AuthResolver.resolve();
+					}
+				}
 			}).when('/companyProfile', {
 				redirectTo : '/Detail/company'
 			}).otherwise({
 				redirectTo : '/'
 			});
 
-			
-
 		} ]);
+pureHydrationApp
+		.factory(
+				'AuthResolver',
+				function($q, $rootScope, $window) {
+					return {
+						resolve : function() {
+							var deferred = $q.defer();
+							var unwatch = $rootScope
+									.$watch(
+											'loginBean.currentUser',
+											function(currentUser) {
+												if (angular
+														.isDefined($rootScope.loginBean.currentUser)) {
+													if ($rootScope.loginBean.currentUser) {
+														deferred
+																.resolve($rootScope.loginBean.currentUser);
+													} else {
+														deferred.reject();
+														$window.location.href = '#/login';
+													}
+													unwatch();
+												}
+											});
+							return deferred.promise;
+						}
+					};
+				})

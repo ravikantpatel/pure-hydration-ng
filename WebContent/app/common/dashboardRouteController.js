@@ -2,16 +2,12 @@
  * Dashboard Route Controller
  */
 
-pureHydrationAppControllers
-		.controller('DashboardRouteController',
-				[
-						'$scope',
-						'AuthService',
-						'USER_ROLES',
-						'$window',
-						'$routeParams',
-						function($scope, AuthService, USER_ROLES, $window,
-								$routeParams) {
-							$scope.templateUrl = 'app/' + $routeParams.dashboardType
-									+ '/dashboard.html';
-						} ]);
+pureHydrationAppControllers.controller('DashboardRouteController', [
+		'$scope',
+		'AuthService',
+		'$window',
+		'$routeParams',
+		function($scope, AuthService, $window, $routeParams) {
+			$scope.templateUrl = 'app/' + $routeParams.dashboardType
+					+ '/dashboard.html';
+		} ]);

@@ -3,8 +3,8 @@
  */
 
 pureHydrationAppControllers.controller('HeaderController', [ '$scope',
-		'AuthService', 'USER_ROLES', '$window',
-		function($scope, AuthService, USER_ROLES, $window) {
+		'AuthService', '$window',
+		function($scope, AuthService, $window) {
 
 			function logout() {
 				AuthService.setCurrentUser('');

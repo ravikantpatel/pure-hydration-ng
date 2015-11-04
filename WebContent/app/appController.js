@@ -2,15 +2,23 @@
  * Main application controller
  */
 
-pureHydrationAppControllers.controller('AppController', [ '$scope',
-		'AuthService', 'USER_ROLES', '$window',
-		function($scope, AuthService, USER_ROLES, $window) {
-			$scope.user_roles = USER_ROLES
-			$scope.loginBean = {};
-			$scope.loginBean.loggedIn = AuthService.getStatus();
-			$scope.loginBean.currentUser = AuthService.getCurrentUser();
-			$scope.loginBean.userRole = AuthService.getUserRole();
-			$scope.loginBean.userCompanyId = AuthService.getUserCompanyId();
-			$scope.loginBean.selectedMenuItem = AuthService.getSelectedMenuItem();
-			$scope.loginBean.userId = AuthService.getUserId();
-		} ]);
+pureHydrationAppControllers.controller('AppController',
+		[
+				'$rootScope',
+				'$scope',
+				'AuthService',
+				'USER_ROLES',
+				'$window',
+				function($rootScope, $scope, AuthService, USER_ROLES, $window) {
+					$rootScope.user_roles = USER_ROLES
+					$rootScope.loginBean = {};
+					$rootScope.loginBean.loggedIn = AuthService.getStatus();
+					$rootScope.loginBean.currentUser = AuthService
+							.getCurrentUser();
+					$rootScope.loginBean.userRole = AuthService.getUserRole();
+					$rootScope.loginBean.userCompanyId = AuthService
+							.getUserCompanyId();
+					$rootScope.loginBean.selectedMenuItem = AuthService
+							.getSelectedMenuItem();
+					$rootScope.loginBean.userId = AuthService.getUserId();
+				} ]);

@@ -14,9 +14,6 @@ pureHydrationAppControllers.controller('VideosDetailController', [
 		'UserService',
 		function($scope, AuthService, $window, UNITS, VideosService,
 				CountryService, StateService, $routeParams, UserService) {
-			if (AuthService.getStatus() == false) {
-				$window.location.href = '#/login';
-			}
 
 			$scope.videosDetail = VideosService
 					.getVideosDetailById($routeParams.id);

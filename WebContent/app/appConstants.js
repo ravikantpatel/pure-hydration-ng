@@ -37,7 +37,7 @@ pureHydrationAppConfig.constant('USER_ROLES', {
 	}
 });
 
-pureHydrationAppConfig.constant('UNITS', {
+pureHydrationAppConfig.value('UNITS', {
 	liquidUnit : 'us-oz'
 });
 pureHydrationAppConfig.constant('serverBaseURL',

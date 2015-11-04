@@ -3,7 +3,6 @@
  */
 
 pureHydrationAppControllers.controller('ManageResourcesController', [ '$scope',
-		'AuthService', 'USER_ROLES', '$window',
-		function($scope, AuthService, USER_ROLES, $window) {
-
+		'AuthService', '$window', function($scope, AuthService, $window) {
+			$scope.pagePath = 'Manage Resources';
 		} ]);
