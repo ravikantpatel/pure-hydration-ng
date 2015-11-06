@@ -1,0 +1,41 @@
+<div ng-controller="GroupListController" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+	<div class="row">
+		<ng-include src="'app/common/breadCrumbHome.html'"></ng-include>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">&nbsp;</div>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Groups List <a href="loadGroupDetail.do"
+							class="btn btn-primary">New</a>
+					</div>
+					<div class="panel-body">
+					<div id="divError" class="form-group" style="color: red;"></div>
+					<div id="divMessage" class="form-group" style="color: green;"></div>
+						<table id="GroupListTable" data-search="true"
+							data-pagination="true" data-show-refresh="false"
+							data-show-toggle="false" data-show-columns="false"
+							data-search="true" data-select-item-name="groupId"
+							data-sort-name="groupId" data-sort-order="desc" group-list-table-directive>
+							<thead>
+								<tr>
+									<th data-field="groupId" data-checkbox="true"
+										class="bs-checkbox" style="width: 36px;"></th>
+									<th data-field="groupName" data-sortable="true">Name</th>
+									<th data-field="description" data-sortable="true">Description</th>
+									<th data-field="edit" data-sortable="false">Edit</th>
+								</tr>
+							</thead>
+						</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

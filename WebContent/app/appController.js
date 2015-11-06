@@ -10,6 +10,7 @@ pureHydrationAppControllers.controller('AppController',
 				'USER_ROLES',
 				'$window',
 				function($rootScope, $scope, AuthService, USER_ROLES, $window) {
+
 					$rootScope.user_roles = USER_ROLES
 					$rootScope.loginBean = {};
 					$rootScope.loginBean.loggedIn = AuthService.getStatus();

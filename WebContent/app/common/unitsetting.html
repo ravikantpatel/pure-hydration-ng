@@ -18,9 +18,7 @@
 				<div class="panel-body">
 					<form name="unitSettingDetail" id="unitSettingDetail"
 						action="updateUnitSetting.do" method="post">
-						<c:if test="${message ne null}">
-							<div class="form-group" style="color: green;">${message}</div>
-						</c:if>
+						
 						<div id="divError" class="form-group" style="color: red;"></div>
 						<div id="divMessage" class="form-group" style="color: green;"></div>
 
@@ -29,15 +27,11 @@
 							<div class="form-group">
 								<label>Liquid</label> <select name="liquidUnit" id="liquidUnit"
 									tabindex="1" class="form-control" style="width: 200px;">
-									<option value="<%=Unit.LIQUID_ML%>"><%=Unit.LIQUID_ML%></option>
+									<!-- <option value="<%=Unit.LIQUID_ML%>"><%=Unit.LIQUID_ML%></option>
 									<option value="<%=Unit.LIQUID_US_OZ%>"><%=Unit.LIQUID_US_OZ%></option>
-									<option value="<%=Unit.LIQUID_UK_OZ%>"><%=Unit.LIQUID_UK_OZ%></option>
+									<option value="<%=Unit.LIQUID_UK_OZ%>"><%=Unit.LIQUID_UK_OZ%></option> -->
 								</select>
-								<script type="text/javascript">
-								<!--
-									$('#liquidUnit').val('${liquidUnit}');
-								//-->
-								</script>
+								
 							</div>
 
 							<button id="submit" type="submit" class="btn btn-primary"
@@ -48,14 +42,10 @@
 							<div class="form-group">
 								<label>Weight</label> <select name="weightUnit" id="weightUnit"
 									tabindex="2" class="form-control" style="width: 200px;">
-									<option value="<%=Unit.WEIGHT_KG%>"><%=Unit.WEIGHT_KG%></option>
-									<option value="<%=Unit.WEIGHT_LBS%>"><%=Unit.WEIGHT_LBS%></option>
+									<!-- <option value="<%=Unit.WEIGHT_KG%>"><%=Unit.WEIGHT_KG%></option>
+									<option value="<%=Unit.WEIGHT_LBS%>"><%=Unit.WEIGHT_LBS%></option> -->
 								</select>
-								<script type="text/javascript">
-								<!--
-									$('#weightUnit').val('${weightUnit}');
-								//-->
-								</script>
+								
 							</div>
 						</div>
 					</form>

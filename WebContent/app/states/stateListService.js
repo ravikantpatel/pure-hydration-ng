@@ -24,6 +24,11 @@ pureHydrationServices.factory('StateService', function($http) {
 	return {
 		getStates : function() {
 			return states;
+		},
+		getStateDetailById : function(stateId) {
+			var res = alasql('SELECT * FROM ? WHERE stateId = ?', [
+					states, parseInt(stateId) ]);
+			return res[0];
 		}
 	};
 });

@@ -1,0 +1,319 @@
+<div ng-controller="UserDetailController"
+	class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+	<div class="row">
+		<ng-include src="'app/common/breadCrumbHome.html'"></ng-include>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">&nbsp;</div>
+	</div>
+	<!--/.row-->
+
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+
+				<div class="panel-heading">{{pageHeader}}</div>
+
+				<div class="panel-body">
+					<form name="userDetail" id="userDetail"
+						action="createUpdateUser.do" role="form" method="post"
+						enctype="multipart/form-data">
+						<input type="hidden" name="page" id="page" value="companyUserList" />
+						<div id="divError" class="form-group" style="color: red;"></div>
+						<div id="divMessage" class="form-group" style="color: green;"></div>
+
+						<div class="col-md-6">
+
+							<div class="form-group">
+								<label>First Name</label><label style="color: red;">*</label> <input
+									type="hidden" name="companyId" id="companyId"
+									ng-model="loginBean.userCompanyId" /> <input type="hidden"
+									name="userRole" id="userRole" ng-model="loginBean.userRole" />
+								<input type="hidden" name="companyName" id="companyName"
+									ng-model="companyDetail.companyName" /> <input type="hidden"
+									name="userId" id="userId" ng-model="userDetail.userId" /> <input
+									type="text" id="firstName" name="firstName" tabindex="1"
+									class="form-control" maxlength="75"
+									ng-model="userDetail.firstName" />
+							</div>
+
+							<div class="form-group">
+								<label>Last Name</label><label style="color: red;">*</label> <input
+									type="text" id="lastName" name="lastName" tabindex="2"
+									class="form-control" maxlength="75"
+									ng-model="userDetail.lastName" />
+							</div>
+
+							<div class="form-group">
+								<label>Gender</label><label style="color: red;">*</label> <select
+									name="gender" id="gender" tabindex="3" class="form-control">
+									<option value="">--Select--</option>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+
+							</div>
+
+							<div ng-if="loginBean.userRole == user_roles.COMPANY_USER.role">
+								<div class="form-group">
+									<label>Department</label> <select name="departmentId"
+										id="departmentId" disabled="disabled"
+										ng-model="userDetail.department" tabindex="4"
+										class="form-control"
+										ng-options="department.departmentName for department in departmentList track by department.departmentId" />
+									<input type="hidden" name="departmentId" id="departmentId"
+										ng-model="userDetail.departmentId" />
+								</div>
+
+								<div class="form-group">
+									<label>Location</label> <select name="locationId"
+										id="locationId" disabled="disabled"
+										ng-model="userDetail.location" tabindex="5"
+										class="form-control"
+										ng-options="location.locationName for location in locationList track by location.locationId" />
+									<input type="hidden" name="locationId" id="locationId"
+										ng-model="userDetail.locationId" />
+								</div>
+
+								<div class="form-group">
+									<label>Group</label> <select name="groupId" id="groupId"
+										disabled="disabled" ng-model="userDetail.group" tabindex="6"
+										class="form-control"
+										ng-options="group.groupName for group in groupList track by group.groupId">
+										<input type="hidden" name="groupId" id="groupId"
+										ng-model="userDetail.groupId" />
+								</div>
+							</div>
+							<div ng-if="loginBean.userRole != user_roles.COMPANY_USER.role">
+								<div class="form-group">
+									<label>Department</label> <select name="departmentId"
+										id="departmentId" ng-model="userDetail.department"
+										tabindex="4" class="form-control"
+										ng-options="department.departmentName for department in departmentList track by department.departmentId" />
+									<input type="hidden" name="departmentId" id="departmentId"
+										ng-model="userDetail.departmentId" />
+								</div>
+
+								<div class="form-group">
+									<label>Location</label> <select name="locationId"
+										id="locationId" ng-model="userDetail.location" tabindex="5"
+										class="form-control"
+										ng-options="location.locationName for location in locationList track by location.locationId" />
+									<input type="hidden" name="locationId" id="locationId"
+										ng-model="userDetail.locationId" />
+								</div>
+
+								<div class="form-group">
+									<label>Group</label> <select name="groupId" id="groupId"
+										ng-model="userDetail.group" tabindex="6" class="form-control"
+										ng-options="group.groupName for group in groupList track by group.groupId">
+										<input type="hidden" name="groupId" id="groupId"
+										ng-model="userDetail.groupId" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label>Weight</label>
+								<div class="form-inline">
+									<input type="text" id="weight" name="weight" tabindex="7"
+										class="form-control" maxlength="5" style="width: 50%;"
+										ng-model="userGoal.weight" onchange="calculateGoal();" /> <select
+										name="groupId" id="groupId" ng-model="userDetail.group"
+										class="form-control"
+										ng-options="group.groupName for group in groupList track by group.groupId">
+
+										<script type="text/javascript">
+										<!--
+											$('#weightUnit').val(
+													'${weightUnit}');
+										//-->
+										</script>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label>Activity Level</label>
+								<!-- <c:set value="<%=Unit.ACTIVITY_EXTREMELY_ACTIVE%>"
+									var="extremelyActive" />
+								<c:set value="<%=Unit.ACTIVITY_VERY_ACTIVE%>" var="veryActive" />
+								<c:set value="<%=Unit.ACTIVITY_ACTIVE%>" var="active" />
+								<c:set value="<%=Unit.ACTIVITY_NORMAL%>" var="normal" /> -->
+
+								<select name="activity" id="activity" tabindex="9"
+									class="form-control" onchange="calculateGoal();">
+									<option value="">--Select--</option>
+									<!-- <option value="${extremelyActive}">${extremelyActive}</option>
+									<option value="${veryActive}">${veryActive}</option>
+									<option value="${active}">${active}</option>
+									<option value="${normal}">${normal}</option> -->
+								</select>
+
+							</div>
+
+							<div class="form-group">
+								<label>Weather/Temperature</label>
+								<!-- <c:set value="<%=Unit.TEMPERATURE_VERY_HOT%>" var="veryHot" />
+								<c:set value="<%=Unit.TEMPERATURE_WARM%>" var="warm" />
+								<c:set value="<%=Unit.TEMPERATURE_COLD%>" var="cold" />
+								<c:set value="<%=Unit.TEMPERATURE_VERY_COLD%>" var="veryCold" /> -->
+
+								<select name="temperature" id="temperature" tabindex="10"
+									class="form-control" onchange="calculateGoal();">
+									<option value="">--Select--</option>
+									<!-- <option value="${veryHot}">${veryHot}</option>
+									<option value="${warm}">${warm}</option>
+									<option value="${cold}">${cold}</option>
+									<option value="${veryCold}">${veryCold}</option> -->
+								</select>
+
+							</div>
+
+							<div class="form-group">
+								<label>Water intake goal</label>
+								<div class="form-inline">
+									<input type="text" id="goal" name="goal" tabindex="11"
+										class="form-control" maxlength="10" style="width: 50%;"
+										value="${userGoal.goal}" onchange="checkNumeric()" /> <select
+										name="goalUnit" id="goalUnit" tabindex="12"
+										class="form-control" style="width: 49%;">
+										<!-- <option value="<%=Unit.LIQUID_ML%>"><%=Unit.LIQUID_ML%></option>
+										<option value="<%=Unit.LIQUID_US_OZ%>"><%=Unit.LIQUID_US_OZ%></option>
+										<option value="<%=Unit.LIQUID_UK_OZ%>"><%=Unit.LIQUID_UK_OZ%></option> -->
+									</select>
+
+
+								</div>
+							</div>
+
+
+							<button id="submit" type="submit" class="btn btn-primary"
+								tabindex="20" onclick="return addUpdateUser();">{{saveActionCaption}}</button>
+
+							<button type="reset" class="btn btn-default" tabindex="21">Reset</button>
+							<!-- <c:if
+								test="${userDetail.userId ne null and paramValues.page[0] ne 'userProfile' and page ne 'userProfile'}"> -->
+							<a ng-if="userDetail.userId != 0"
+								href="emailLoginDetails.do?userId=${userDetail.userId}&companyId=${companyId}"
+								class="btn btn-default" tabindex="22" id="emailDetails"
+								name="emailDetails">Email Login Details</a> <a
+								ng-if="userDetail.userId != 0"
+								href="deleteUser.do?userId=${userDetail.userId}&companyId=${companyId}"
+								class="btn btn-danger" tabindex="23" id="deleteUser"
+								name="deleteUser">Delete User</a>
+
+						</div>
+						<div class="col-md-6">
+							<label>User Photo</label> <input type="hidden" name="userPhoto"
+								id="userPhoto" class="hidden-image-data" /> <input
+								type="hidden" name="isCropped" id="isCropped" value="true" />
+							<div class="form-group">
+								<div class="image-editor" id="editor">
+									<input id="imageUpload" name="imageUpload" type="file"
+										class="cropit-image-input" />
+									<div class="cropit-image-preview" id="imagePreview"
+										style="display: block;"></div>
+									<p>
+										<img src="{{userDetail.userPhotoUrl}}" id="smallImage"
+											style="margin-top: 7px; border: 1px solid #ccc;" />
+									</p>
+									<p class="help-block">Photo size: 250px wide by 250px high</p>
+									<div id="imgLabel" class="image-size-label"
+										style="display: none;">Resize image</div>
+									<input id="imgRange" style="display: none; width: 50%;"
+										type="range" class="cropit-image-zoom-input" />
+									<!-- <button class="export">Export</button> -->
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label>Phone</label><label style="color: red;">*</label> <input
+									type="text" id="contactNo" name="contactNo" tabindex="14"
+									class="form-control" maxlength="12"
+									ng-model="userDetail.contactNo" onchange="checkNumeric()" />
+							</div>
+
+							<div class="form-group">
+								<label>E-Mail (used as login)</label><label style="color: red;">*</label>
+
+								<input ng-if="userDetail.userId != 0" type="text" id="emailId"
+									name="emailId" tabindex="15" class="form-control"
+									maxlength="75" ng-model="userDetail.emailId" disabled /> <input
+									ng-if="userDetail.userId != 0" type="hidden" name="emailId"
+									id="emailId" ng-model="userDetail.emailId" /> <input
+									ng-if="userDetail.userId == 0" type="text" id="emailId"
+									name="emailId" tabindex="15" class="form-control"
+									maxlength="75" ng-model="userDetail.emailId"
+									placeholder="contact@example.com" />
+
+							</div>
+
+							<div class="form-group">
+								<label>Password</label><label style="color: red;">*</label> <input
+									type="password" id="password" name="password" tabindex="16"
+									class="form-control" maxlength="75" />
+							</div>
+
+							<div class="form-group">
+								<label>Re-Type Password</label><label style="color: red;">*</label>
+								<input type="password" id="retypePasword" name="retypePasword"
+									tabindex="17" class="form-control" maxlength="75" />
+							</div>
+
+
+							<div class="form-group"
+								ng-if="paramValues.page[0] != 'userProfile' && page != 'userProfile'">
+								<label>User Type</label><label style="color: red;">*</label> <select
+									name="roleId" id="roleId" tabindex="18" class="form-control">
+									<!-- <option value="<%=ROLE.getRoleValue(ROLE.COMPANY_ADMIN)%>">Administrator</option>
+											<option value="<%=ROLE.getRoleValue(ROLE.COMPANY_USER)%>">Regular</option> -->
+								</select>
+							</div>
+							<div class="form-group"
+								ng-if="paramValues.page[0] != 'userProfile' && page != 'userProfile'">
+								<label>Status</label><label style="color: red;">*</label><br />
+
+								<input
+									ng-if="userDetail.activeFlag != '' && userDetail.activeFlag == 1"
+									type="radio" name="activeBlock" id="activeBlock" value="Active"
+									checked />Active &nbsp; <input
+									ng-if="userDetail.activeFlag != '' && userDetail.activeFlag == 1"
+									type="radio" name="activeBlock" id="activeBlock" value="Block" />Block
+
+								<input
+									ng-if="userDetail.activeFlag != '' && userDetail.activeFlag == 2"
+									type="radio" name="activeBlock" id="activeBlock" value="Active" />Active
+								&nbsp; <input
+									ng-if="userDetail.activeFlag != '' && userDetail.activeFlag == 2"
+									type="radio" name="activeBlock" id="activeBlock" value="Block"
+									checked />Block <input ng-if="userDetail.activeFlag == ''"
+									type="radio" name="activeBlock" id="activeBlock" value="Active"
+									checked />Active &nbsp; <input
+									ng-if="userDetail.activeFlag == ''" type="radio"
+									name="activeBlock" id="activeBlock" value="Block" />Block
+
+							</div>
+
+
+							<input
+								ng-if="paramValues.page[0] == 'userProfile' && page == 'userProfile'"
+								type="hidden" name="roleId" id="roleId"
+								value="${userDetail.roleId}" /> <input
+								ng-if="paramValues.page[0] == 'userProfile' && page == 'userProfile'"
+								type="hidden" name="activeBlock" id="activeBlock"
+								value="${userDetail.activeFlag}" /> <input
+								ng-if="paramValues.page[0] == 'userProfile' && page == 'userProfile'"
+								type="hidden" name="page" id="page" value="userProfile" />
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- /.col-->
+	</div>
+	<!-- /.row -->
+</div>
+<!--/.main-->

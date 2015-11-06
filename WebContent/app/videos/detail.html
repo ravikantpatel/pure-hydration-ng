@@ -41,7 +41,7 @@
                             
                             <button type="reset" class="btn btn-default" tabindex="7">Reset</button>
                             
-                            <a ng-show="videosDetail.videoId != 0" href="deleteVideo.do?videoId=${videoDetail.videoId}" class="btn btn-danger" tabindex="8" id="deleteVideo" name="deleteVideo">Delete Video</a>
+                            <a ng-if="videosDetail.videoId != 0" href="deleteVideo.do?videoId=${videoDetail.videoId}" class="btn btn-danger" tabindex="8" id="deleteVideo" name="deleteVideo">Delete Video</a>
                             
 						</div>
 						<div class="col-md-6">

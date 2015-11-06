@@ -37,8 +37,11 @@ pureHydrationAppConfig.constant('USER_ROLES', {
 	}
 });
 
-pureHydrationAppConfig.value('UNITS', {
-	liquidUnit : 'us-oz'
+pureHydrationAppConfig.constant('UNITS', {
+	liquidUnit : 'us-oz',
+	liquid_ml : 'ml',
+	liquid_us_oz : 'liquid_us_oz',
+	liquid_uk_oz : 'liquid_uk_oz'
 });
 pureHydrationAppConfig.constant('serverBaseURL',
 		'http://127.0.0.1:3000/pureHydration/');

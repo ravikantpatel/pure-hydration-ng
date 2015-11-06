@@ -15,7 +15,92 @@
 				<div class="panel-body">
 					<form name="companyDetailForm" id="companyDetailForm" action=""
 						method="post" enctype="multipart/form-data">
-						<div id="divError" class="form-group" style="color: red;"></div>
+						<div id="divError" class="form-group" style="color: red;">
+							<div class="error"
+								ng-show="companyDetailForm.name.$dirty && companyDetailForm.name.$invalid">
+								<small class="error"
+									ng-show="companyDetailForm.name.$error.required"> Your
+									name is required. </small> <small class="error"
+									ng-show="companyDetailForm.name.$error.minlength"> Your
+									name is required to be at least 3 characters </small> <small
+									class="error" ng-show="companyDetailForm.name.$error.maxlength">
+									Your name cannot be longer than 75 characters </small>
+							</div>
+							<div class="error"
+								ng-show="companyDetailForm.address1.$dirty && companyDetailForm.address1.$invalid">
+								<small class="error"
+									ng-show="companyDetailForm.address1.$error.required">
+									Your Address 1 is required. </small> <small class="error"
+									ng-show="companyDetailForm.address1.$error.minlength">
+									Your Address 1 is required to be at least 3 characters </small> <small
+									class="error"
+									ng-show="companyDetailForm.address1.$error.maxlength">
+									Your Address 1 cannot be longer than 150 characters </small>
+							</div>							
+							<div class="error"
+								ng-show="companyDetailForm.address2.$dirty && companyDetailForm.address2.$invalid">
+								<small class="error"
+									ng-show="companyDetailForm.address2.$error.required">
+									Your Address 2 is required. </small> <small class="error"
+									ng-show="companyDetailForm.address2.$error.minlength">
+									Your Address 2 is required to be at least 3 characters </small> <small
+									class="error"
+									ng-show="companyDetailForm.address2.$error.maxlength">
+									Your Address 2 cannot be longer than 150 characters </small>
+							</div>
+							<div class="error"
+								ng-show="companyDetailForm.countryId.$dirty && companyDetailForm.countryId.$invalid">
+								<small class="error"
+									ng-show="companyDetailForm.countryId.$error.required">
+									Your Country is required. </small>
+							</div>
+							<div class="error"
+								ng-show="companyDetailForm.stateId.$dirty && companyDetailForm.stateId.$invalid">
+								<small class="error"
+									ng-show="companyDetailForm.stateId.$error.required">
+									Your State is required. </small>
+							</div>
+							<div class="error"
+								ng-show="companyDetailForm.cityId.$dirty && companyDetailForm.cityId.$invalid">
+								<small class="error"
+									ng-show="companyDetailForm.cityId.$error.required">
+									Your State is required. </small>
+							</div>
+
+							<div class="error"
+								ng-show="companyDetailForm.postalCode.$dirty && companyDetailForm.postalCode.$invalid">
+								<small class="error"
+									ng-show="companyDetailForm.postalCode.$error.required">
+									Your Zip Code is required. </small> <small class="error"
+									ng-show="companyDetailForm.postalCode.$error.pattern">
+									Your Zip Code is not a valid number. </small>
+							</div>
+							<div class="error"
+								ng-show="companyDetailForm.contactNo.$dirty && companyDetailForm.contactNo.$invalid">
+								<small class="error"
+									ng-show="companyDetailForm.contactNo.$error.required">
+									Your Phone Number is required. </small> <small class="error"
+									ng-show="companyDetailForm.contactNo.$error.pattern">
+									Your Phone Number is not a valid number. </small>
+							</div>
+							<div class="error"
+								ng-show="companyDetailForm.emailId.$dirty && companyDetailForm.emailId.$invalid">
+								<small class="error"
+									ng-show="companyDetailForm.emailId.$error.required">
+									Your Email-Id is required. </small> <small class="error"
+									ng-show="companyDetailForm.emailId.$error.email"> That
+									is not a valid email. Please input a valid email. </small>
+							</div>
+							<div class="error"
+								ng-show="companyDetailForm.website.$dirty && companyDetailForm.website.$invalid">
+								<small class="error"
+									ng-show="companyDetailForm.website.$error.required">
+									Your Website is required. </small><small class="error"
+									ng-show="companyDetailForm.website.$error.url"> That is
+									not a valid url. Please input a valid url. </small>
+							</div>
+
+						</div>
 						<div id="divMessage" class="form-group" style="color: green;"></div>
 
 						<div class="col-md-6">
@@ -25,43 +110,52 @@
 									type="hidden" id="companyID" name="companyID"
 									ng-model="companyDetail.companyId" /> <input type="text"
 									id="name" name="name" tabindex="1" class="form-control"
-									ng-maxlength="75" ng-model="companyDetail.companyName" />
+									ng-maxlength="75" ng-minlength="3" maxlength="75"
+									ng-model="companyDetail.companyName" required />
 							</div>
 
 							<div class="form-group">
 								<label>Address 1</label><label style="color: red;">*</label> <input
 									type="text" id="address1" name="address1" tabindex="2"
-									class="form-control" ng-maxlength="150"
-									ng-model="companyDetail.address1" />
+									class="form-control" ng-maxlength="150" maxlength="150" ng-minlength="3"
+									ng-model="companyDetail.address1" required />
 							</div>
 
 							<div class="form-group">
 								<label>Address 2</label><label style="color: red;">*</label> <input
 									type="text" id="address2" name="address2" tabindex="3"
-									class="form-control" ng-maxlength="150"
-									ng-model="companyDetail.address2" />
+									class="form-control" ng-maxlength="150" maxlength="150" ng-minlength="3"
+									ng-model="companyDetail.address2" required />
 							</div>
 
 							<div class="form-group">
 								<label>Country</label><label style="color: red;">*</label> <select
-									ng-model="companyDetail.country" class="form-control"
-									ng-options="country.country for country in countryList track by country.countryId">
-									<!-- <option value="">--Select--</option> -->
+									name="countryId" id="countryId"
+									ng-model="companyDetail.countryId" class="form-control"
+									required>
+									<option value="">--Select--</option>
+									<option ng-repeat="country in countryList"
+										ng-selected="companyDetail.countryId == country.countryId"
+										value="{{country.countryId}}">{{country.country}}</option>
 								</select>
 							</div>
 
 							<div class="form-group">
 								<label>State</label><label style="color: red;">*</label> <select
-									ng-model="companyDetail.state" class="form-control"
-									ng-options="state.state for state in stateList track by state.stateId">
+									name="stateId" id="stateId" ng-model="companyDetail.stateId"
+									class="form-control" required>
 									<option value="">--Select--</option>
+									<option ng-repeat="state in stateList"
+										ng-selected="companyDetail.stateId == state.stateId"
+										value="{{state.stateId}}">{{state.state}}</option>
 								</select>
 							</div>
 
 							<div class="form-group">
 								<label>City</label><label style="color: red;">*</label> <select
-									ng-model="companyDetail.cityId" class="form-control"
-									ng-options="city.city for city in cityList">
+									name="cityId" id="cityId" ng-model="companyDetail.cityId"
+									class="form-control"
+									ng-options="city.city for city in cityList" required>
 									<option value="">--Select--</option>
 								</select>
 							</div>
@@ -69,13 +163,15 @@
 							<div class="form-group">
 								<label>Zip</label><label style="color: red;">*</label> <input
 									type="text" id="postalCode" name="postalCode" tabindex="7"
-									class="form-control" ng-maxlength="6"
-									ng-model="companyDetail.postalCode" onchange="checkNumeric()" />
+									class="form-control" ng-maxlength="6" maxlength="6"
+									ng-model="companyDetail.postalCode" ng-pattern="/^[0-9]{1,6}$/" required />
 							</div>
 
 
-							<button id="submit" type="submit" class="btn btn-primary"
-								tabindex="13" onclick="return addUpdateCompany();">{{saveActionCaption}}</button>
+							<!-- <button id="submit" type="submit" class="btn btn-primary"
+								tabindex="13" ng-click="addUpdate()">{{saveActionCaption}}</button> -->
+							<button id="saveAction" type="button" class="btn btn-primary"
+								tabindex="13" ng-click="addUpdate()">{{saveActionCaption}}</button>
 							<button type="reset" class="btn btn-default" tabindex="14">Reset</button>
 
 						</div>
@@ -104,24 +200,25 @@
 							<div class="form-group">
 								<label>Phone</label><label style="color: red;">*</label> <input
 									type="text" id="contactNo" name="contactNo" tabindex="9"
-									class="form-control" ng-maxlength="11"
-									ng-model="companyDetail.contactNo" onchange="checkNumeric()" />
+									class="form-control" ng-maxlength="11" maxlength="11"
+									ng-model="companyDetail.contactNo" ng-pattern="/^[0-9]{1,11}$/"
+									required />
 							</div>
 
 							<div class="form-group">
 								<label>E-Mail</label><label style="color: red;">*</label> <input
 									type="text" id="emailId" name="emailId" tabindex="10"
-									class="form-control" ng-maxlength="75"
+									class="form-control" ng-maxlength="75" maxlength="75"
 									ng-model="companyDetail.emailId"
-									placeholder="contact@example.com" />
+									placeholder="contact@example.com" required />
 
 							</div>
 							<div class="form-group">
 								<label>Website</label><label style="color: red;">*</label> <input
-									type="text" id="website" name="website" tabindex="11"
-									class="form-control" ng-maxlength="75"
+									type="url" id="website" name="website" tabindex="11"
+									class="form-control" ng-maxlength="75" maxlength="75"
 									ng-model="companyDetail.website"
-									placeholder="http://example.com" />
+									placeholder="http://example.com" required />
 							</div>
 							<!-- <c:choose>
 								<c:when test="${paramValues.page[0] ne 'companyProfile' and page ne 'companyProfile'}">	

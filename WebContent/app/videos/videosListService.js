@@ -42,12 +42,10 @@ pureHydrationServices.factory('VideosService', function($http,
 		},
 		getVideosDetailById : function(videoId) {
 
-			for (var i = 0; i < videosDetails.length; i++) {
-				if (videoId == videosDetails[i].videoId) {
-					return videosDetails[i];
-				}
-			}
-			return null;
+			var res = alasql(
+					'SELECT * FROM ? WHERE videoId = ?', [
+							videosDetails, parseInt(videoId) ]);
+			return res;
 		}
 	};
 });

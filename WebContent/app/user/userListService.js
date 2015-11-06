@@ -18,7 +18,7 @@ pureHydrationServices
 								type : 'super_admin',
 								status : 'Active',
 								companyId : 105,
-								link : '<a href="#/editCompany:105" onclick="this.parentNode.submit()">Edit</a>'
+								link : '<a href="#/Detail/user/1">Edit</a>'
 							},
 							{
 								userId : 2,
@@ -30,7 +30,7 @@ pureHydrationServices
 								type : 'company_admin',
 								status : 'Active',
 								companyId : 105,
-								link : '<a href="#/editCompany:105" onclick="this.parentNode.submit()">Edit</a>'
+								link : '<a href="#/Detail/user/2">Edit</a>'
 							},
 							{
 								userId : 3,
@@ -42,7 +42,7 @@ pureHydrationServices
 								type : 'super_admin',
 								status : 'Active',
 								companyId : 105,
-								link : '<a href="#/editCompany:105" onclick="this.parentNode.submit()">Edit</a>'
+								link : '<a href="#/Detail/user/3">Edit</a>'
 							},
 							{
 								userId : 4,
@@ -54,7 +54,7 @@ pureHydrationServices
 								type : 'company_user',
 								status : 'Active',
 								companyId : 105,
-								link : '<a href="#/editCompany:105" onclick="this.parentNode.submit()">Edit</a>'
+								link : '<a href="#/Detail/user/4">Edit</a>'
 							} ];
 
 					return {

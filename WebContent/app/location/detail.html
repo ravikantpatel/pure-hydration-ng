@@ -1,0 +1,63 @@
+<div ng-controller="DepartmentDetailController"
+	class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+	<div class="row">
+		<ng-include src="'app/common/breadCrumbHome.html'"></ng-include>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">&nbsp;</div>
+	</div>
+	<!--/.row-->
+
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+
+				<div class="panel-heading">{{pageHeader}}</div>
+
+				<div class="panel-body">
+					<form name="locationDetail" id="locationDetail"
+						action="createUpdateLocation.do" method="post">
+
+						<div id="divError" class="form-group" style="color: red;"></div>
+						<div id="divMessage" class="form-group" style="color: green;"></div>
+
+						<div class="col-md-6">
+
+							<div class="form-group">
+								<label>Name</label><label style="color: red;">*</label> <input
+									type="hidden" id="locationId" name="locationId"
+									ng-model="locationDetail.locationId" /> <input type="hidden"
+									id="companyId" name="companyId"
+									ng-model="loginBean.userCompanyId" /> <input type="text"
+									id="name" name="name" tabindex="1" class="form-control"
+									maxlength="75" ng-model="locationDetail.locationName" />
+							</div>
+
+							<button id="submit" type="submit" class="btn btn-primary"
+								tabindex="6" onclick="return addUpdateLocation();">{{saveActionCaption}}</button>
+							<button type="reset" class="btn btn-default" tabindex="7">Reset</button>
+
+							<a ng-if="locationDetail.locationId != 0" href=""
+								class="btn btn-danger" tabindex="8" id="deleteLocation"
+								name="deleteLocation">Delete Location</a>
+
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Description</label> <input type="text" id="description"
+									name="description" tabindex="2" class="form-control"
+									maxlength="150" ng-model="locationDetail.description" />
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- /.col-->
+	</div>
+	<!-- /.row -->
+</div>
+<!--/.main-->

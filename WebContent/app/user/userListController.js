@@ -7,6 +7,6 @@ pureHydrationAppControllers.controller('UserListController', [ '$scope',
 
 		function($scope, AuthService, $window, UNITS, CompanyService) {
 			$scope.pagePath = 'Company Users';
-			$scope.companyId = $scope.loginBean.userCompanyId;
+			$scope.companyId = $rootScope.loginBean.userCompanyId;
 			$scope.companyName = CompanyService.getCompanyDetailById($scope.companyId).companyName;
 		} ]);

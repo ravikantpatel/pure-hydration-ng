@@ -6,6 +6,7 @@ pureHydrationAppControllers
 		.controller(
 				'CompanyDetailController',
 				[
+						'$rootScope',
 						'$scope',
 						'AuthService',
 						'$window',
@@ -15,13 +16,13 @@ pureHydrationAppControllers
 						'StateService',
 						'$routeParams',
 						'UserService',
-						function($scope, AuthService, $window, UNITS,
-								CompanyService, CountryService, StateService,
-								$routeParams, UserService) {
-							
+						function($rootScope, $scope, AuthService, $window,
+								UNITS, CompanyService, CountryService,
+								StateService, $routeParams, UserService) {
+
 							console.log('$routeParams.id:' + $routeParams.id)
 							$scope.companyDetail = CompanyService
-									.getCompanyDetailById($routeParams.id == undefined ? $scope.loginBean.userCompanyId
+									.getCompanyDetailById($routeParams.id == undefined ? $rootScope.loginBean.userCompanyId
 											: $routeParams.id);
 							// alert($scope.companyDetail.companyName);
 							$scope.countryList = CountryService.getCountries();
@@ -74,5 +75,12 @@ pureHydrationAppControllers
 							$scope.config = {
 								itemsPerPage : 5,
 								fillLastPage : true
-							}
+							};
+
+							$scope.addUpdate = function() {
+								CompanyService
+										.addUpdateCompany($scope.companyDetail);
+//								$window.location.href = '#/Detail/company/'
+//										+ $scope.companyDetail.companyId
+							};
 						} ]);
