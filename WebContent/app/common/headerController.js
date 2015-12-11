@@ -32,5 +32,6 @@ pureHydrationAppControllers.controller('HeaderController', [ '$rootScope','$scop
 
 			$scope.$on('IdleTimeout', function() {
 				logout();
+				$rootScope.logoutApp();
 			});
 		} ]);

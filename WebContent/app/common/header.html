@@ -15,8 +15,8 @@
 				My Company</a> <a
 				ng-if="loginBean.userRole == user_roles.COMPANY_USER.role"
 				href="#/dashboard/companyuser" ng-click="redirectToDashboard('companyUserDashboard')" class="navbar-brand"><span>Hydrate</span>
-				My Company</a>
-
+				My Company</a> <a href="#/login" ng-if="loginBean.loggedIn != true"
+				class="navbar-brand"><span>Hydrate</span> My Company</a>
 
 			<div ng-show="loginBean.currentUser != ''">
 				<ul class="user-menu">

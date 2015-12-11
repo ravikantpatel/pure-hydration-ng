@@ -3,11 +3,36 @@
  */
 
 'use strict';
-pureHydrationApp.run([ 'Idle', 'InitDataService',
-		function(Idle, InitDataService) {
+pureHydrationApp.run([ 'Idle', 'InitDataService','GAuth', 'GApi', 'GData','$rootScope',
+		function(Idle, InitDataService,GAuth, GApi, GData,$rootScope) {
 			Idle.watch();
 			// Init Temp data for real-time manupulation
 			InitDataService.initAppData();
+			
+			
+			$rootScope.gdata = GData;
+
+	        var CLIENT = '336363641999-597q4f5rrekh0ncif229ramoj9vqlo1r.apps.googleusercontent.com';
+	       
+	        GAuth.setClient(CLIENT);
+	        GAuth.setScope('https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/calendar.readonly');
+	        GAuth.checkAuth().then(
+	            function () {
+	                console.log('Logged in...');
+	            },
+	            function() {
+	            	console.log('Not Logged in...');
+	            }
+	        );
+
+	        $rootScope.logoutApp = function() {
+	            GAuth.logout().then(
+	            function () {
+	            	 console.log('Logged out...');
+	            });
+	        };
+			
+			
 		} ]);
 /*
  * pureHydrationApp.directive('myDirective', function() { return { restrict :

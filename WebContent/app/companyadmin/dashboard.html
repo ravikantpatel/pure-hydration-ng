@@ -97,12 +97,16 @@
 					</div>
 
 					<div class="panel-body">
-						<div class="canvas-wrapper">
+						<!-- <div class="canvas-wrapper">
 							<canvas id="line" class="chart chart-line" chart-data="data"
 								chart-labels="labels" chart-legend="false"
 								chart-click="lineChartClick" chart-series="series" height="200"
 								width="600"></canvas>
-						</div>
+						</div> -->
+						
+							<div fusioncharts width="600" height="200" type="line"
+								dataSource="{{myDataSource}}"></div>
+						
 					</div>
 				</div>
 			</div>
@@ -144,8 +148,12 @@
 					</div>
 					<div class="panel-body">
 						<div class="canvas-wrapper">
-							<canvas id="pie" class="chart chart-pie" chart-data="data"
-								chart-labels="labels"></canvas>
+							<!-- <canvas id="pie" class="chart chart-pie" chart-data="data"
+								chart-labels="labels"></canvas> -->
+
+							<fusioncharts width="500" height="250" type="pie2d"
+								datasource="{{myDataSource}}"></fusioncharts>
+
 							<div ng-show="data.length == 0">No data available.</div>
 						</div>
 					</div>

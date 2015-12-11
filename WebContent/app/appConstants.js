@@ -7,13 +7,13 @@
 var pureHydrationApp = angular.module('pure-hydration-ng', [ 'ngRoute',
 		'ngStorage', 'pure-hydration-ng.services',
 		'pure-hydration-ng.controllers', 'pure-hydration-ng.config',
-		'pure-hydration-ng.directives', 'ngIdle' ]);
+		'pure-hydration-ng.directives', 'ngIdle', 'angular-google-gapi' ]);
 var pureHydrationServices = angular.module('pure-hydration-ng.services', [
 		'ngRoute', 'ngStorage', 'pure-hydration-ng.config' ]);
 var pureHydrationAppControllers = angular.module(
 		'pure-hydration-ng.controllers', [ 'ngRoute', 'ngStorage',
 				'pure-hydration-ng.services', 'pure-hydration-ng.config',
-				'chart.js' ]);
+				'chart.js','ng-fusioncharts' ]);
 var pureHydrationAppDirectives = angular.module('pure-hydration-ng.directives',
 		[ 'ngRoute', 'ngStorage', 'pure-hydration-ng.services',
 				'pure-hydration-ng.config' ]);

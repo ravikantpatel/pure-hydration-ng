@@ -8,7 +8,10 @@ pureHydrationAppControllers.controller('LoginController', [
 		'AuthService',
 		'$window',
 		'USER_ROLES',
-		function($rootScope, $scope, AuthService, $window, USER_ROLES) {
+		'GAuth',
+		'GData',
+		function($rootScope, $scope, AuthService, $window, USER_ROLES, GAuth,
+				GData) {
 			$scope.loginForm = {};
 			$scope.loginForm.emailId = "";
 			$scope.loginForm.password = "";
@@ -51,6 +54,13 @@ pureHydrationAppControllers.controller('LoginController', [
 					AuthService.setUserCompanyId(1);
 					AuthService.setUserId(4);
 				}
+				postSignIn();
+			};
+			function encodeCredentials(pwd) {
+				return $base64.encode(pwd);
+			}
+			;
+			function postSignIn(){
 				$rootScope.loginBean.loggedIn = AuthService.getStatus();
 				if ($rootScope.loginBean.loggedIn == true) {
 
@@ -67,9 +77,16 @@ pureHydrationAppControllers.controller('LoginController', [
 					$window.location.href = '#/dashboard/'
 							+ dashboardType.toLowerCase();
 				}
-			};
-			function encodeCredentials(pwd) {
-				return $base64.encode(pwd);
 			}
-			;
+
+	        $scope.doLogin = function() {
+	            GAuth.login().then(function(){
+	            	AuthService.setCurrentUser(GData.getUser().name);
+					AuthService.setStatus(true);
+					AuthService.setUserRole(USER_ROLES.COMPANY_USER);
+					AuthService.setUserCompanyId(1);
+					AuthService.setUserId(4);
+	            	postSignIn();
+	            });
+	        };
 		} ]);
