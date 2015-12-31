@@ -13,22 +13,22 @@
 				id="superAdminDashboard"
 				ng-click="selectMenuItem('superAdminDashboard')"><a
 				href="#/dashboard/superadmin"><span
-					class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+					class="glyphicon glyphicon-dashboard"></span> {{ 'DASHBOARD' | translate }}</a></li>
 			<li ng-class="{active : isSelected('superAdminCompanyList')}"
 				id="superAdminCompanyList"
 				ng-click="selectMenuItem('superAdminCompanyList')"><a
 				href="#/List/company"><span class="glyphicon glyphicon-user"></span>
-					Company List</a></li>
+					{{ 'COMPANY_LIST' | translate }}</a></li>
 			<li ng-class="{active : isSelected('superAdminManageResources')}"
 				id="superAdminManageresources"
 				ng-click="selectMenuItem('superAdminManageResources')"><a
 				href="#/List/manageresources"><span
-					class="glyphicon glyphicon-pencil"></span> Manage Resources</a></li>
+					class="glyphicon glyphicon-pencil"></span> {{ 'MANAGE_RESOURCES' | translate }}</a></li>
 			<li ng-class="{active : isSelected('superAdminResources')}"
 				id="superAdminResources"
 				ng-click="selectMenuItem('superAdminResources')"><a
 				href="#/List/resources"><span class="glyphicon glyphicon-th"></span>
-					Resources</a></li>
+					{{ 'RESOURCES' | translate }}</a></li>
 		</ul>
 	</div>
 	<div ng-if="loginBean.userRole == user_roles.COMPANY_ADMIN.role">
@@ -37,32 +37,32 @@
 				id="companyAdminDashboard"
 				ng-click="selectMenuItem('companyAdminDashboard')"><a
 				href="#/dashboard/companyadmin"><span
-					class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+					class="glyphicon glyphicon-dashboard"></span> {{ 'DASHBOARD' | translate }}</a></li>
 			<li ng-class="{active : isSelected('companyAdminProfile')}"
 				id="companyAdminProfile"
 				ng-click="selectMenuItem('companyAdminProfile')"><a
 				href="#/companyProfile"><span
-					class="glyphicon glyphicon-info-sign"></span> Company Profile</a></li>
+					class="glyphicon glyphicon-info-sign"></span> {{ 'COMPANY_PROFILE' | translate }}</a></li>
 			<li ng-class="{active : isSelected('companyAdminUsers')}"
 				id="companyAdminUsers"
 				ng-click="selectMenuItem('companyAdminUsers')"><a href="#/List/user/"><span
-					class="glyphicon glyphicon-user"></span> Company Users</a></li>
+					class="glyphicon glyphicon-user"></span> {{ 'COMPANY_USERS' | translate }}</a></li>
 			<li ng-class="{active : isSelected('companyAdminDepartments')}"
 				id="companyAdminDepartments"
 				ng-click="selectMenuItem('companyAdminDepartments')"><a href="#/List/department"><span
-					class="glyphicon glyphicon-list-alt"></span> Departments</a></li>
+					class="glyphicon glyphicon-list-alt"></span> {{ 'DEPARTMENTS' | translate }}</a></li>
 			<li ng-class="{active : isSelected('companyAdminLocations')}"
 				id="companyAdminLocations"
 				ng-click="selectMenuItem('companyAdminLocations')"><a href="#/List/location"><span
-					class="glyphicon glyphicon-map-marker"></span> Locations</a></li>
+					class="glyphicon glyphicon-map-marker"></span> {{ 'LOCATIONS' | translate }}</a></li>
 			<li ng-class="{active : isSelected('companyAdminGroups')}"
 				id="companyAdminGroups"
 				ng-click="selectMenuItem('companyAdminGroups')"><a href="#/List/group"><span
-					class="glyphicon glyphicon-map-marker"></span> Groups</a></li>
+					class="glyphicon glyphicon-map-marker"></span> {{ 'GROUPS' | translate }}</a></li>
 			<li ng-class="{active : isSelected('companyAdminResources')}"
 				id="companyAdminResources"
 				ng-click="selectMenuItem('companyAdminResources')"><a href="#/List/resources"><span
-					class="glyphicon glyphicon-th"></span> Resources</a></li>
+					class="glyphicon glyphicon-th"></span> {{ 'RESOURCES' | translate }}</a></li>
 		</ul>
 	</div>
 	<div ng-if="loginBean.userRole == user_roles.COMPANY_USER.role">
@@ -71,19 +71,25 @@
 				id="companyUserDashboard"
 				ng-click="selectMenuItem('companyUserDashboard')"><a
 				href="#/dashboard/companyuser"><span
-					class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+					class="glyphicon glyphicon-dashboard"></span> {{ 'DASHBOARD' | translate }}</a></li>
 			<li ng-class="{active : isSelected('companyUserProfile')}"
 				id="companyUserProfile"
 				ng-click="selectMenuItem('companyUserProfile')"><a href="#/myProfile"><span
-					class="glyphicon glyphicon-user"></span> My Profile</a></li>
+					class="glyphicon glyphicon-user"></span> {{ 'MY_PROFILE' | translate }}</a></li>
 			<li ng-class="{active : isSelected('companyUserResources')}"
 				id="companyUserResources"
 				ng-click="selectMenuItem('companyUserResources')"><a href="#/List/resources"><span
-					class="glyphicon glyphicon-th"></span> Resources</a></li>
+					class="glyphicon glyphicon-th"></span> {{ 'RESOURCES' | translate }}</a></li>
 			<li ng-class="{active : isSelected('companyUserBluePrint')}"
 				id="companyUserBluePrint"
 				ng-click="selectMenuItem('companyUserBluePrint')"><a href="#/List/resources"><span
-					class="glyphicon glyphicon-calendar"></span> 21 Day Blueprint</a></li>
+					class="glyphicon glyphicon-calendar"></span> {{ 'DAY21_BLUEPRINT' | translate }}</a></li>
 		</ul>
+	</div>
+	<div>
+		<label for="languageSelect">Language: </label>
+		<select name="repeatSelect" id="languageSelect" ng-model="languages.selectedOption">
+					<option ng-repeat="option in languages.optionsList" value="{{option.value}}">{{option.name}}</option>
+		</select>
 	</div>
 </div>

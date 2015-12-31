@@ -13,8 +13,10 @@ pureHydrationAppControllers
 						'CompanyService',
 						'GAuth',
 						'GData',
+						'$translate',
+						'$window',
 						function($rootScope, $scope, AuthService, $location,
-								CompanyService, GAuth, GData) {
+								CompanyService, GAuth, GData, $translate,$window) {
 							AuthService.checkAuthentication();
 
 							$scope.selectMenu = function(event) {
@@ -41,5 +43,23 @@ pureHydrationAppControllers
 							$scope.isSelected = function(menuItem) {
 								return $rootScope.loginBean.selectedMenuItem == menuItem;
 							}
-
+							
+							$scope.browserLocale = $window.navigator.language || $window.navigator.userLanguage;
+							
+							$scope.languages = {									
+						    		selectedOption : $translate.use(),
+						    		optionsList : [
+						                   		{ name: 'English', value: 'en'},
+						                   		{ name: 'German', value: 'de'},
+						                   ]
+							    }
+							
+							
+							$scope.$watch(
+						 			"languages.selectedOption",
+						 			function handleChange(newValue, oldValue) {
+						 				$translate.use($scope.languages.selectedOption); 
+						 			}
+				 			);
+							
 						} ]);

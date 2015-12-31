@@ -40,9 +40,44 @@ pureHydrationApp.run([ 'Idle', 'InitDataService','GAuth', 'GApi', 'GData','$root
  */
 
 pureHydrationApp.config([ '$routeProvider', 'KeepaliveProvider',
-		'IdleProvider',
-		function($routeProvider, KeepaliveProvider, IdleProvider) {
+		'IdleProvider','$translateProvider',
+		function($routeProvider, KeepaliveProvider, IdleProvider,$translateProvider) {
 
+			
+			$translateProvider.useStaticFilesLoader({
+				  prefix: 'assets/languages/locale-',
+				  suffix: '.json'
+				});
+			
+			/*$translateProvider.translations('en', {
+				DASHBOARD : 'Dashboard',
+				COMPANY_LIST: 'Company List',
+				MANAGE_RESOURCES : 'Manage Resources',
+				RESOURCES : 'Resources',
+				COMPANY_PROFILE : 'Company Profile',
+				COMPANY_USERS : 'Company Users',
+				DEPARTMENTS : 'Departments',
+				LOCATIONS : 'Locations',
+				GROUPS : 'Groups',
+				MY_PROFILE : 'My Profile',
+				DAY21_BLUEPRINT : '21 Day Blueprint'
+			}).translations('de', {
+				DASHBOARD : 'Armaturenbrett',
+				COMPANY_LIST: 'Unternehmensliste',
+				MANAGE_RESOURCES : 'Ressourcen verwalten',
+				RESOURCES : 'Ressourcen',
+				COMPANY_PROFILE : 'Firmenprofil',
+				COMPANY_USERS : 'Unternehmen Benutzer',
+				DEPARTMENTS : 'Abteilungen',
+				LOCATIONS : 'Locations',
+				GROUPS : 'Gruppen',
+				MY_PROFILE : 'Mein Profil',
+				DAY21_BLUEPRINT : '21 Tag Entwurf'
+			});*/
+			$translateProvider.useSanitizeValueStrategy('escaped');
+			$translateProvider.preferredLanguage('en');
+			$translateProvider.useLocalStorage();
+//			$translateProvider.useCookieStorage();
 			/*
 			 * var $injector = angular.injector([ 'pure-hydration-ng.services'
 			 * ]); var authService = $injector.get('AuthService');

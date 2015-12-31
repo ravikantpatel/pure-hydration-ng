@@ -22,7 +22,9 @@
 		<div ng-if="loginBean.loggedIn == true" ng-include
 			src="'app/common/menu.html'"></div>
 		<div id="main" role="main">
-			<div ng-view></div>
+			<div class="slide-animation-container">
+				<div ng-view class="vertical-flip msg"></div>
+			</div>
 			<!--	
 				<div ng-include src="'app/superadmin/dashboard.html'"></div>
 			</div>
@@ -63,6 +65,11 @@
 	<script src="assets/lib/angular/angular-google-gapi.js"></script>
 	<!-- 	<script src="assets/lib/angular/angular-scenario.js"></script> -->
 	<script type="text/javascript" src="assets/lib/angular/angular-fusioncharts.js"></script>
+	<script type="text/javascript" src="assets/lib/angular/angular-translate.js"></script>
+	<script type="text/javascript" src="assets/lib/angular/angular-translate-storage-cookie.min.js"></script>
+	<script type="text/javascript" src="assets/lib/angular/angular-translate-storage-local.min.js"></script>
+	<script type="text/javascript" src="assets/lib/angular/angular-translate-loader-url.min.js"></script>
+	<script type="text/javascript" src="assets/lib/angular/angular-translate-loader-static-files.min.js"></script>
 
 
 	<!-- Application Scripts -->

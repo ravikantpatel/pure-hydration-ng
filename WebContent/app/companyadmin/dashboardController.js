@@ -51,53 +51,116 @@ pureHydrationAppControllers
 
 							
 							$scope.myDataSource = {
-					                chart: {
-					                	"xAxisName": "Day",
-					                    "yAxisName": "No. of Visitors",
-					                    "lineThickness": "2",
-					                    "paletteColors": "#0075c2",
-					                    "baseFontColor": "#333333",
-					                    "baseFont": "Helvetica Neue,Arial",
-					                    "captionFontSize": "14",
-					                    "subcaptionFontSize": "14",
-					                    "subcaptionFontBold": "0",
-					                    "showBorder": "0",
-					                    "bgColor": "#ffffff",
-					                    "showShadow": "0",
-					                    "canvasBgColor": "#ffffff",
-					                    "canvasBorderAlpha": "0",
-					                    "divlineAlpha": "100",
-					                    "divlineColor": "#999999",
-					                    "divlineThickness": "1",
-					                    "divLineDashed": "1",
-					                    "divLineDashLen": "1",
-					                    "divLineGapLen": "1",
-					                    "showXAxisLine": "1",
-					                    "xAxisLineThickness": "1",
-					                    "xAxisLineColor": "#999999",
-					                    "showAlternateHGridColor": "0"
-					                },
-					                data:[{
-					                    label: "Bakersfield Central",
-					                    value: "880000"
-					                },
-					                {
-					                    label: "Garden Groove harbour",
-					                    value: "730000"
-					                },
-					                {
-					                    label: "Los Angeles Topanga",
-					                    value: "590000"
-					                },
-					                {
-					                    label: "Compton-Rancho Dom",
-					                    value: "520000"
-					                },
-					                {
-					                    label: "Daly City Serramonte",
-					                    value: "330000"
-					                }]
-					              };
+									"chart": {
+							
+					 	        "caption": "User type (Sub / Annoy)",
+						 	       "subCaption": $scope.chartSubCaption,
+						 	        "xAxisName": "Date",
+						 	        "yAxisName": "# Users",	 	        
+						 	        "paletteColors": "#0075c2,#1aaf5d",
+						 	        "bgColor": "#ffffff",
+						 	        "showBorder": "0",
+						 	        "showCanvasBorder": "0",
+						 	        "plotBorderAlpha": "10",
+						 	        "usePlotGradientColor": "0",
+						 	        "legendBorderAlpha": "0",
+						 	        "legendShadow": "0",
+						 	        "plotFillAlpha": "60",
+						 	        "showXAxisLine": "1",
+						 	        "axisLineAlpha": "25",
+						 	        "showValues": "0",
+						 	        "captionFontSize": "14",
+						 	        "subcaptionFontSize": "14",
+						 	        "subcaptionFontBold": "0",
+						 	        "divlineColor": "#999999",
+						 	        "divLineDashed": "1",
+						 	        "divLineDashLen": "1",
+						 	        "divLineGapLen": "1",
+						 	        "showAlternateHGridColor": "0",
+						 	        "toolTipColor": "#ffffff",
+						 	        "toolTipBorderThickness": "0",
+						 	        "toolTipBgColor": "#000000",
+						 	        "toolTipBgAlpha": "80",
+						 	        "toolTipBorderRadius": "2",
+						 	        "toolTipPadding": "5",
+						 	        "labelDisplay": "rotate",
+						 	        "slantLabels": "1",
+						 	    },
+						 	    "categories": [
+						 	  	 	        {
+						 		 	            "category": [
+						 		 	                {
+						 		 	                    "label": "Sun-01-Nov-15"
+						 		 	                },
+						 		 	                {
+						 		 	                	"label": "Mon-02-Nov-15"
+						 		 	                },
+						 		 	                {
+						 		 	                	"label": "Tue-03-Nov-15"
+						 		 	                },	 	                
+						 		 	                {
+						 		 	                    "label": "Wed-04-Nov-15"
+						 		 	                },
+						 		 	                {
+						 		 	                    "label": "Thu-05-Nov-15"
+						 		 	                },
+						 		 	                {
+						 		 	                    "label": "Fri-06-Nov-15"
+						 		 	                }
+						 		 	            ]
+						 		 	        }
+						 		 	    ],
+						 		 	    "dataset": [
+						 		 	        {
+						 		 	            "seriesname": "User Annoy",
+						 		 	            "color": "#5B9BD5",
+						 		 	            "data": [
+						 		 	                {
+						 		 	                    "value": "13000"
+						 		 	                },
+						 		 	                {
+						 		 	                    "value": "14500"
+						 		 	                },
+						 		 	                {
+						 		 	                    "value": "13500"
+						 		 	                },
+						 		 	                {
+						 		 	                    "value": "15000"
+						 		 	                },
+						 		 	                {
+						 		 	                    "value": "15500"
+						 		 	                },
+						 		 	                {
+						 		 	                    "value": "17650"
+						 		 	                }
+						 		 	            ]
+						 		 	        },
+						 		 	        {
+						 		 	            "seriesname": "User Sub",
+						 		 	            "color": "#ED7D31",
+						 		 	            "data": [
+						 		 	                {
+						 		 	                    "value": "8400"
+						 		 	                },
+						 		 	                {
+						 		 	                    "value": "9800"
+						 		 	                },
+						 		 	                {
+						 		 	                    "value": "11800"
+						 		 	                },
+						 		 	                {
+						 		 	                    "value": "14400"
+						 		 	                },
+						 		 	                {
+						 		 	                    "value": "18800"
+						 		 	                },
+						 		 	                {
+						 		 	                    "value": "24800"
+						 		 	                }
+						 		 	            ]
+						 		 	        }
+						 		 	        ]
+							 	};
 					           
 							
 							// console.log('historyChartLabel:'+historyChartLabel);

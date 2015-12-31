@@ -7,7 +7,7 @@
 var pureHydrationApp = angular.module('pure-hydration-ng', [ 'ngRoute',
 		'ngStorage', 'pure-hydration-ng.services',
 		'pure-hydration-ng.controllers', 'pure-hydration-ng.config',
-		'pure-hydration-ng.directives', 'ngIdle', 'angular-google-gapi' ]);
+		'pure-hydration-ng.directives', 'ngIdle', 'angular-google-gapi','ngAnimate', 'pascalprecht.translate','ngCookies' ]);
 var pureHydrationServices = angular.module('pure-hydration-ng.services', [
 		'ngRoute', 'ngStorage', 'pure-hydration-ng.config' ]);
 var pureHydrationAppControllers = angular.module(
