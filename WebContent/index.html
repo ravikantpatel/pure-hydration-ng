@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Pure Hydration</title>
-<link href="assets/css/bootstrap.min.css" type="text/css"
+<!-- <link href="assets/css/bootstrap.min.css" type="text/css"
 	rel="stylesheet" />
 <link href="assets/css/datepicker3.css" type="text/css" rel="stylesheet" />
 <link href="assets/css/styles.css" type="text/css" rel="stylesheet" />
@@ -12,6 +12,8 @@
 <link href="assets/css/jquery.datetimepicker.css" type="text/css"
 	rel="stylesheet" />
 <link href="assets/css/angular-chart.css" type="text/css"
+	rel="stylesheet" /> -->
+	<link href="dist/css/Pure-Hydration.css" type="text/css"
 	rel="stylesheet" />
 </head>
 <body ng-app="pure-hydration-ng" ng-controller="AppController">
@@ -36,11 +38,14 @@
 	</div>
 
 	<!-- Included Libs -->
+	
+ 
 	<script src="assets/lib/others/jquery-1.11.1.min.js"></script>
 	<script src="assets/lib/others/bootstrap.min.js"></script>
+	<script src="assets/lib/others/bootstrap-table.js"></script>
+
 	<script src="assets/lib/others/chart.min.js"></script>
 	<script src="assets/lib/others/bootstrap-datepicker.js"></script>
-	<script src="assets/lib/others/bootstrap-table.js"></script>
 	<script src="assets/lib/others/jquery.datetimepicker.js"></script>
 	<script src="assets/lib/others/jquery.mask.js"></script>
 	<script src="assets/lib/others/jquery.numeric.js"></script>
@@ -50,110 +55,38 @@
 	<script src="assets/lib/others/xlsx.core.min.js"></script>
 	<script src="assets/lib/others/alasql.js"></script>
 	<script type="text/javascript" src="assets/lib/others/fusioncharts.js"></script>
+	
+	<!-- 
+	-->
+	<script src="dist/js/Pure-Hydration.components.js"></script> 
 
-	<script src="assets/lib/angular/angular.js"></script>
-	<script src="assets/lib/angular/angular-aria.js"></script>
-	<script src="assets/lib/angular/angular-animate.js"></script>
-	<script src="assets/lib/angular/angular-cookies.js"></script>
+	<!-- comment out when grunt works
+	 
+		<script src="assets/lib/angular/angular.js"></script>
+		<script src="assets/lib/angular/angular-animate.js"></script>
+		<script src="assets/lib/angular/angular-route.js"></script>
+		<script src="assets/lib/angular/angular-cookies.js"></script>
+		<script src="assets/lib/angular/angular-resource.js"></script>
+		<script src="assets/lib/angular/angular-google-gapi.js"></script>
+		<script type="text/javascript" src="assets/lib/angular/angular-translate.js"></script>
+		<script type="text/javascript" src="assets/lib/angular/angular-translate-storage-cookie.min.js"></script>
+		<script type="text/javascript" src="assets/lib/angular/angular-translate-storage-local.min.js"></script>
+		<script type="text/javascript" src="assets/lib/angular/angular-translate-loader-static-files.min.js"></script>
+		<script type="text/javascript" src="assets/lib/angular/angular-translate-loader-url.min.js"></script>
+	<!--  end comment-->
+		
+		
+		
+	<script src="assets/lib/angular/angular-chart.js"></script>
 	<script src="assets/lib/angular/angular-loader.js"></script>
-	<script src="assets/lib/angular/angular-resource.js"></script>
-	<script src="assets/lib/angular/angular-route.js"></script>
-	<script src="assets/lib/angular/angular-sanitize.js"></script>
 	<script src="assets/lib/angular/ngStorage.js"></script>
 	<script src="assets/lib/angular/angular-idle.js"></script>
-	<script src="assets/lib/angular/angular-chart.js"></script>
-	<script src="assets/lib/angular/angular-google-gapi.js"></script>
-	<!-- 	<script src="assets/lib/angular/angular-scenario.js"></script> -->
 	<script type="text/javascript" src="assets/lib/angular/angular-fusioncharts.js"></script>
-	<script type="text/javascript" src="assets/lib/angular/angular-translate.js"></script>
-	<script type="text/javascript" src="assets/lib/angular/angular-translate-storage-cookie.min.js"></script>
-	<script type="text/javascript" src="assets/lib/angular/angular-translate-storage-local.min.js"></script>
-	<script type="text/javascript" src="assets/lib/angular/angular-translate-loader-url.min.js"></script>
-	<script type="text/javascript" src="assets/lib/angular/angular-translate-loader-static-files.min.js"></script>
+	<!-- 	<script src="assets/lib/angular/angular-scenario.js"></script> -->
+	<script src="dist/js/Pure-Hydration.js"></script>
 
 
-	<!-- Application Scripts -->
-	<script src="app/appConstants.js"></script>
-	<script src="app/app.js"></script>
-
-	<!-- Application Services -->
-	<script src="app/common/initDataService.js"></script>
-	<script src="app/login/authService.js"></script>
-	<script src="app/company/companyListService.js"></script>
-	<script src="app/country/countryListService.js"></script>
-	<script src="app/states/stateListService.js"></script>
-	<script src="app/user/userListService.js"></script>
-	<script src="app/companyadmin/waterIntakeService.js"></script>
-	<script src="app/products/productListService.js"></script>
-	<script src="app/documents/documentListService.js"></script>
-	<script src="app/videos/videosListService.js"></script>
-	<script src="app/department/departmentListService.js"></script>
-	<script src="app/location/locationListService.js"></script>
-	<script src="app/group/groupListService.js"></script>
-
-	<!-- Modules >> Controllers >> Directives -->
-	<script src="app/appController.js"></script>
-	<script src="app/login/loginController.js"></script>
-	<!-- Common -->
-	<script src="app/common/headerController.js"></script>
-	<script src="app/common/menuController.js"></script>
-	<script src="app/common/dashboardRouteController.js"></script>
-	<script src="app/common/listRouteController.js"></script>
-	<script src="app/common/detailRouteController.js"></script>
-	<script src="app/common/unitSettingController.js"></script>
-	<!-- Super Admin -->
-	<script src="app/superadmin/dashboardController.js"></script>
-	<!-- Company Admin -->
-	<script src="app/companyadmin/dashboardController.js"></script>
-	<!-- Company -->
-	<script src="app/company/companyListController.js"></script>
-	<script src="app/company/companyListDirective.js"></script>
-	<script src="app/company/companyDetailController.js"></script>
 	
-	<!-- Resources -->
-	<script src="app/resources/resourcesController.js"></script>
-	<!-- Manage Resources -->
-	<script src="app/manageresources/manageResourcesController.js"></script>
-	<!-- Product -->
-	<script src="app/products/productListController.js"></script>
-	<script src="app/products/productListDirective.js"></script>
-	<script src="app/products/productDetailController.js"></script>
-
-	<!-- Document -->
-	<script src="app/documents/documentListController.js"></script>
-	<script src="app/documents/documentListDirective.js"></script>
-	<script src="app/documents/documentDetailController.js"></script>
-
-	<!-- Video -->
-	<script src="app/videos/videosListController.js"></script>
-	<script src="app/videos/videosListDirective.js"></script>
-	<script src="app/videos/videosDetailController.js"></script>
-	
-	<!-- User -->
-	<script src="app/user/userListTableDirective.js"></script>
-	<script src="app/user/userListTableController.js"></script>
-	<script src="app/user/userListController.js"></script>
-	<script src="app/user/userDetailController.js"></script>
-	<!-- <script src="app/user/csvUserListUploadDirective.js"></script>
-	<script src="app/user/importUsersCSVDirective.js"></script> -->
-	
-	<!-- Company User -->
-	<script src="app/companyuser/dashboardController.js"></script>
-	
-	<!-- Department -->
-	<script src="app/department/departmentListController.js"></script>
-	<script src="app/department/departmentListDirective.js"></script>
-	<script src="app/department/departmentDetailController.js"></script>
-	
-	<!-- Location -->
-	<script src="app/location/locationListController.js"></script>
-	<script src="app/location/locationListDirective.js"></script>
-	<script src="app/location/locationDetailController.js"></script>
-	
-	<!-- Group -->
-	<script src="app/group/groupListController.js"></script>
-	<script src="app/group/groupListDirective.js"></script>
-	<script src="app/group/groupDetailController.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,35 @@
+{
+  "name": "Pure-Hydration",
+  "version": "1.0.0",
+  "authors": [
+    "ravikant.patel@spec-india.com"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bower_components/dist/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-animate": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "angular-cookies": "~1.4.7",
+    "angular-resource": "~1.4.7",
+    "angular-google-gapi": "~0.1.2",
+    "angular-translate": "~2.8.1",
+    "angular-translate-storage-cookie": "~2.8.1",
+    "angular-translate-storage-local": "~2.8.1",
+    "angular-translate-loader-url": "~2.8.1",
+    "angular-translate-loader-static-files": "~2.8.1"
+  },
+  "resolutions": {
+    "angular": "1.4.7"
+  }
+}
